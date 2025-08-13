@@ -43,6 +43,6 @@ collections:
       - {label: "الرابط", name: "url", widget: "string"}
       - {label: "الترتيب", name: "order", widget: "number", default: 1}
 
-local_backend: true
+
 admin_path: /cms/
 
