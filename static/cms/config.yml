@@ -40,7 +40,7 @@ collections:
       - {label: "اسم القناة", name: "title", widget: "string"}
       - {label: "الوصف", name: "description", widget: "string"}
       - {label: "الأيقونة", name: "icon", widget: "string", hint: "مثال: fas fa-gamepad"}
-      - {label: "الرابط", name: "url", widget: "string"}
+
       - {label: "الترتيب", name: "order", widget: "number", default: 1}
 
 
