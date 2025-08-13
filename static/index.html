@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechTouch</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Netlify Identity Widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        * {
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        body {
+            background: #1B8EEF;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        /* Header Styles */
+        .header-bar {
+            background: linear-gradient(135deg, #1B8EEF, #0C18C0);
+            color: white;
+            padding: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0%, 100% { background: linear-gradient(135deg, #1B8EEF, #0C18C0); }
+            50% { background: linear-gradient(135deg, #0C18C0, #1B8EEF); }
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Advertisement Bar Styles */
+        .ad-banner {
+            background-color: #fcd34d;
+            color: #000000;
+            font-weight: bold;
+            text-align: center;
+            padding: 1rem;
+            margin: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ad-label {
+            color: #ef4444;
+            font-weight: 900;
+            animation: pulse-red 2s infinite;
+            margin-left: 0.5rem;
+        }
+        
+        @keyframes pulse-red {
+            0%, 100% { 
+                color: #ef4444;
+                text-shadow: 0 0 5px rgba(239, 68, 68, 0.5);
+            }
+            50% { 
+                color: #dc2626;
+                text-shadow: 0 0 10px rgba(239, 68, 68, 0.8);
+            }
+        }
+        
+        /* Main Content Styles */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            flex: 1;
+        }
+        
+        /* Posts Section */
+        .posts-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #1B8EEF;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .post-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 1);
+        }
+        
+        .post-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+        
+        .post-excerpt {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        
+        .post-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: #888;
+        }
+        
+        /* Games Section */
+        .games-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Sports Section */
+        .sports-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Telegram Section */
+        .telegram-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .telegram-section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .telegram-icon {
+            font-size: 3rem;
+            color: #0088cc;
+            margin-bottom: 1rem;
+        }
+        
+        /* Pagination Styles */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .pagination button {
+            background: #1B8EEF;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .pagination button:hover:not(:disabled) {
+            background: #0C18C0;
+            transform: translateY(-2px);
+        }
+        
+        .pagination button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 0.5rem;
+            background: rgba(27, 142, 239, 0.05);
+            border: 1px solid rgba(27, 142, 239, 0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .modal-item:hover {
+            background: rgba(27, 142, 239, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-item .icon {
+            font-size: 1.5rem;
+            margin-left: 1rem;
+            width: 2rem;
+            text-align: center;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 1.5rem;
+            }
+            
+            .header-image {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .posts-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header-title {
+                font-size: 1.2rem;
+            }
+            
+            .header-image {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .posts-section,
+            .games-section,
+            .sports-section,
+            .telegram-section {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Bar -->
+    <header class="header-bar">
+        <div class="header-content">
+            <h1 class="header-title">TechTouch</h1>
+            <img id="profile-pic-display" src="https://via.placeholder.com/100" alt="الصورة الشخصية" class="header-image">
+        </div>
+    </header>
+    
+    <!-- Advertisement Bar -->
+    <div class="ad-banner">
+        <span class="ad-label">📢 إعلان</span>
+        <span id="ad-text">مرحباً بكم في TechTouch - موقعكم المفضل للتقنية!</span>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Posts Section -->
+        <section class="posts-section">
+            <h2 class="section-title">
+                <i class="fas fa-file-lines"></i>
+                آخر المنشورات
+            </h2>
+            <div class="posts-grid" id="posts-grid">
+                <!-- Posts will be loaded here -->
+            </div>
+            <div class="pagination" id="posts-pagination">
+                <button onclick="prevPostsPage()" id="posts-prev-btn">السابق</button>
+                <span id="posts-page-info">صفحة 1</span>
+                <button onclick="nextPostsPage()" id="posts-next-btn">التالي</button>
+            </div>
+        </section>
+        
+        <!-- Games Section -->
+        <section class="games-section">
+            <h2 class="section-title">
+                <i class="fas fa-gamepad"></i>
+                الألعاب
+            </h2>
+            <div class="posts-grid" id="games-grid">
+                <!-- Games will be loaded here -->
+            </div>
+            <div class="pagination" id="games-pagination">
+                <button onclick="prevGamesPage()" id="games-prev-btn">السابق</button>
+                <span id="games-page-info">صفحة 1</span>
+                <button onclick="nextGamesPage()" id="games-next-btn">التالي</button>
+            </div>
+        </section>
+        
+        <!-- Sports Section -->
+        <section class="sports-section">
+            <h2 class="section-title">
+                <i class="fas fa-futbol"></i>
+                الرياضة
+            </h2>
+            <div class="posts-grid" id="sports-grid">
+                <!-- Sports will be loaded here -->
+            </div>
+            <div class="pagination" id="sports-pagination">
+                <button onclick="prevSportsPage()" id="sports-prev-btn">السابق</button>
+                <span id="sports-page-info">صفحة 1</span>
+                <button onclick="nextSportsPage()" id="sports-next-btn">التالي</button>
+            </div>
+        </section>
+        
+        <!-- Telegram Section -->
+        <section class="telegram-section" onclick="openTelegramModal()">
+            <div class="text-center">
+                <i class="fab fa-telegram telegram-icon"></i>
+                <h2 class="section-title">
+                    التليجرام
+                </h2>
+                <p class="text-gray-600">اضغط للوصول إلى جميع قنوات التليجرام</p>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Telegram Modal -->
+    <div class="modal" id="telegramModal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-bold text-gray-800">قنوات التليجرام</h2>
+                <button onclick="closeTelegramModal()" class="text-gray-500 hover:text-gray-700 text-3xl">&times;</button>
+            </div>
+            <div id="telegramChannelsList">
+                <!-- Telegram channels will be loaded here -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadContent();
+            updateProfilePic();
+        });
+        
+        // Telegram Modal Functions
+        function openTelegramModal() {
+            const modal = document.getElementById('telegramModal');
+            modal.classList.add('active');
+            loadTelegramChannels();
+        }
+        
+        function closeTelegramModal() {
+            const modal = document.getElementById('telegramModal');
+            modal.classList.remove('active');
+        }
+        
+        function loadTelegramChannels() {
+            const channelsList = document.getElementById('telegramChannelsList');
+            
+            // Load channels from GitHub
+            if (telegramChannels && telegramChannels.length > 0) {
+                channelsList.innerHTML = '';
+                telegramChannels.forEach(channel => {
+                    const channelItem = document.createElement('a');
+                    channelItem.href = channel.url;
+                    channelItem.className = 'modal-item';
+                    channelItem.innerHTML = `
+                        <i class="${channel.icon} icon"></i>
+                        <div>
+                            <div class="font-bold">${channel.title}</div>
+                            <div class="text-sm text-gray-600">${channel.description}</div>
+                        </div>
+                    `;
+                    channelsList.appendChild(channelItem);
+                });
+            } else {
+                // Fallback to default channels if GitHub data is not available
+                const defaultChannels = [
+                    { name: 'ألعاب', description: 'قناة الألعاب', icon: 'fas fa-gamepad', url: '#' },
+                    { name: 'جميع القنوات', description: 'جميع القنوات', icon: 'fas fa-list', url: '#' },
+                    { name: 'جميع قنواتي', description: 'جميع قنواتي', icon: 'fas fa-user-circle', url: '#' },
+                    { name: '4K', description: '4K', icon: 'fas fa-tv', url: '#' },
+                    { name: 'قناة الصور', description: 'قناة الصور', icon: 'fas fa-images', url: '#' },
+                    { name: 'حذف حساب', description: 'حذف حساب', icon: 'fas fa-trash', url: '#' },
+                    { name: 'حذف حساب التلي', description: 'حذف حساب التلي', icon: 'fas fa-user-times', url: '#' },
+                    { name: 'رياضة', description: 'قسم التطبيقات الرياضية', icon: 'fas fa-futbol', url: '#' },
+                    { name: 'أفلام', description: 'قسم الأفلام', icon: 'fas fa-film', url: '#' },
+                    { name: 'يوتيوب', description: 'قسم تطبيقات اليوتيوب', icon: 'fab fa-youtube', url: '#' },
+                    { name: 'تطبيقات', description: 'قسم التطبيقات', icon: 'fas fa-mobile-alt', url: '#' },
+                    { name: 'شروحات', description: 'شروحات توضيح', icon: 'fas fa-book', url: '#' },
+                    { name: 'ذكاء اصطناعي', description: 'قسم الذكاء الاصطناعي', icon: 'fas fa-robot', url: '#' },
+                    { name: 'تطبيقات افلام', description: 'تطبيقات افلام', icon: 'fas fa-video', url: '#' },
+                    { name: 'تطبيقات رياضيه', description: 'تطبيقات رياضيه', icon: 'fas fa-running', url: '#' },
+                    { name: 'تصميم الفيديو', description: 'قسم المتفرقات', icon: 'fas fa-edit', url: '#' }
+                ];
+                
+                channelsList.innerHTML = '';
+                defaultChannels.forEach(channel => {
+                    const channelItem = document.createElement('a');
+                    channelItem.href = channel.url;
+                    channelItem.className = 'modal-item';
+                    channelItem.innerHTML = `
+                        <i class="${channel.icon} icon"></i>
+                        <div>
+                            <div class="font-bold">${channel.name}</div>
+                            <div class="text-sm text-gray-600">${channel.description}</div>
+                        </div>
+                    `;
+                    channelsList.appendChild(channelItem);
+                });
+            }
+        }
+        
+        // Pagination variables
+        let currentPostsPage = 1;
+        let currentGamesPage = 1;
+        let currentSportsPage = 1;
+        const itemsPerPage = 10;
+        
+        // Pagination functions
+        function nextPostsPage() {
+            const posts = getAllPosts().filter(p => p.category === 'posts');
+            const totalPages = Math.ceil(posts.length / itemsPerPage);
+            if (currentPostsPage < totalPages) {
+                currentPostsPage++;
+                displaySectionPosts('posts', currentPostsPage);
+            }
+        }
+        
+        function prevPostsPage() {
+            if (currentPostsPage > 1) {
+                currentPostsPage--;
+                displaySectionPosts('posts', currentPostsPage);
+            }
+        }
+        
+        function nextGamesPage() {
+            const games = getAllPosts().filter(p => p.category === 'games');
+            const totalPages = Math.ceil(games.length / itemsPerPage);
+            if (currentGamesPage < totalPages) {
+                currentGamesPage++;
+                displaySectionPosts('games', currentGamesPage);
+            }
+        }
+        
+        function prevGamesPage() {
+            if (currentGamesPage > 1) {
+                currentGamesPage--;
+                displaySectionPosts('games', currentGamesPage);
+            }
+        }
+        
+        function nextSportsPage() {
+            const sports = getAllPosts().filter(p => p.category === 'sports');
+            const totalPages = Math.ceil(sports.length / itemsPerPage);
+            if (currentSportsPage < totalPages) {
+                currentSportsPage++;
+                displaySectionPosts('sports', currentSportsPage);
+            }
+        }
+        
+        function prevSportsPage() {
+            if (currentSportsPage > 1) {
+                currentSportsPage--;
+                displaySectionPosts('sports', currentSportsPage);
+            }
+        }
+        
+        // Display posts for a specific section
+        function displaySectionPosts(category, page = 1) {
+            const filteredPosts = getAllPosts().filter(p => p.category === category);
+            const totalPages = Math.ceil(filteredPosts.length / itemsPerPage);
+            const start = (page - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const paginatedPosts = filteredPosts.slice(start, end);
+            
+            const gridId = category + '-grid';
+            const grid = document.getElementById(gridId);
+            const prevBtnId = category + '-prev-btn';
+            const nextBtnId = category + '-next-btn';
+            const pageInfoId = category + '-page-info';
+            
+            if (!grid) return;
+            
+            grid.innerHTML = '';
+            
+            if (paginatedPosts.length === 0) {
+                grid.innerHTML = '<p class="text-center text-gray-500">لا توجد منشورات في هذا القسم بعد</p>';
+                return;
+            }
+            
+            paginatedPosts.forEach(post => {
+                const postCard = document.createElement('div');
+                postCard.className = 'post-card';
+                postCard.onclick = () => openPost(post.id);
+                
+                postCard.innerHTML = `
+                    <h3 class="post-title">${post.title}</h3>
+                    <p class="post-excerpt">${truncateText(post.content, 100)}</p>
+                    <div class="post-meta">
+                        <span>${formatDate(post.date)}</span>
+                        <span>اقرأ المزيد</span>
+                    </div>
+                `;
+                
+                grid.appendChild(postCard);
+            });
+            
+            // Update pagination controls
+            const prevBtn = document.getElementById(prevBtnId);
+            const nextBtn = document.getElementById(nextBtnId);
+            const pageInfo = document.getElementById(pageInfoId);
+            
+            if (prevBtn) prevBtn.disabled = page === 1;
+            if (nextBtn) nextBtn.disabled = page === totalPages || totalPages === 0;
+            if (pageInfo) pageInfo.textContent = `صفحة ${page} من ${totalPages}`;
+        }
+        
+        // Get all posts (placeholder function)
+        function getAllPosts() {
+            // This should return posts from your data source
+            return posts || [];
+        }
+        
+        // Open post function
+        function openPost(postId) {
+            window.location.href = `post.html?id=${postId}`;
+        }
+        
+        // Utility functions
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('ar-SA', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+        
+        function truncateText(text, maxLength) {
+            if (text.length <= maxLength) return text;
+            return text.substring(0, maxLength) + '...';
+        }
+        
+        // Load content function
+        function loadContent() {
+            // Load posts for each section
+            displaySectionPosts('posts', currentPostsPage);
+            displaySectionPosts('games', currentGamesPage);
+            displaySectionPosts('sports', currentSportsPage);
+            
+            // Update ad text
+            const adText = localStorage.getItem('adText') || 'مرحباً بكم في TechTouch - موقعكم المفضل للتقنية!';
+            document.getElementById('ad-text').textContent = adText;
+        }
+        
+        // Update profile picture
+        function updateProfilePic() {
+            const profilePicDisplay = document.getElementById("profile-pic-display");
+            if (profilePicDisplay) {
+                const savedProfilePic = localStorage.getItem("profilePic");
+                if (savedProfilePic) {
+                    profilePicDisplay.src = savedProfilePic;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+

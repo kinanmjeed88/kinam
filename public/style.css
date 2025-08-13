@@ -1,0 +1,848 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Iphone Arabic', 'Cairo', sans-serif;
+}
+
+@font-face {
+    font-family: 'Iphone Arabic';
+    src: url('Iphone(Arabic).ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ألوان تيليجرام */
+:root {
+    --telegram-blue: #0088cc;
+    --telegram-light-blue: #5ac8fa;
+    --telegram-white: #ffffff;
+    --telegram-light-gray: #f0f2f5;
+    --telegram-hover: #e6f7ff;
+}
+
+body {
+    font-family: 'Iphone Arabic', 'Cairo', sans-serif;
+    background: var(--telegram-light-gray);
+    min-height: 100vh;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Iphone Arabic', 'Cairo', sans-serif;
+}
+
+/* Header Styles */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, var(--telegram-blue), var(--telegram-light-blue));
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--telegram-white);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.profile-link:hover .profile-pic {
+    transform: scale(1.05);
+    border-color: var(--telegram-light-blue);
+}
+
+.profile-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--telegram-white);
+    transition: all 0.3s ease;
+    font-family: 'Iphone Arabic', 'Cairo', sans-serif;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+    margin: 0;
+    font-family: 'Iphone Arabic', 'Cairo', sans-serif;
+}
+
+/* Featured Cards Section */
+.featured-section {
+    margin-bottom: 20px;
+}
+
+.featured-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.featured-card {
+    background: var(--telegram-white);
+    border-radius: 12px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: right;
+    height: 80px;
+}
+
+.featured-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    background: var(--telegram-hover);
+}
+
+.featured-card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--telegram-blue), var(--telegram-light-blue));
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.featured-card-icon img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.featured-card-content h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--telegram-blue);
+    margin: 0;
+    line-height: 1.2;
+<<<<<<< HEAD
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'Iphone Arabic', 'Cairo', sans-serif;
+=======
+>>>>>>> ac95b7a65dfad91772f86f4f46f0d2834aa1251b
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.card {
+    background: var(--telegram-white);
+    border-radius: 12px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    min-height: 80px;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    background: var(--telegram-hover);
+}
+
+.card-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--telegram-blue), var(--telegram-light-blue));
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.card-content h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--telegram-blue);
+    margin: 0;
+    line-height: 1.3;
+<<<<<<< HEAD
+    text-align: right;
+    font-family: 'Iphone Arabic', 'Cairo', sans-serif;
+}
+.sub-section {
+    margin-bottom: 8px;
+    background: rgba(240, 240, 240, 0.9);
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+=======
+>>>>>>> ac95b7a65dfad91772f86f4f46f0d2834aa1251b
+}
+
+/* Sub Sections */
+.sub-sections-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.sub-section {
+    margin-bottom: 8px;
+    background: var(--telegram-white);
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(135deg, var(--telegram-blue), var(--telegram-light-blue));
+    border-radius: 2px;
+}
+
+.sub-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+}
+
+.sub-card {
+    background: var(--telegram-white);
+    border-radius: 10px;
+    padding: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    min-height: 60px;
+}
+
+.sub-card:hover {
+    transform: translateY(-3px);
+    background: var(--telegram-hover);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sub-card-icon {
+    font-size: 1.4rem;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--telegram-blue), var(--telegram-light-blue));
+    border-radius: 50%;
+    color: white;
+}
+
+.sub-card-text {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Dropdown Cards */
+.dropdown-card {
+    background: var(--telegram-white);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    height: 40px;
+    width: 100%;
+    position: relative;
+}
+
+.dropdown-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    color: var(--telegram-blue);
+    font-weight: 600;
+}
+
+.dropdown-header:hover {
+    background: var(--telegram-hover);
+}
+
+.dropdown-arrow {
+    font-size: 1rem;
+    color: var(--telegram-blue);
+    transition: transform 0.3s ease;
+    margin-left: 5px;
+}
+
+.dropdown-card.active .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: var(--telegram-white);
+}
+
+.dropdown-card.active .dropdown-content {
+    max-height: 500px;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-item:hover {
+    background: var(--telegram-hover);
+}
+
+.dropdown-item-icon {
+    font-size: 1.2rem;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--telegram-blue), var(--telegram-light-blue));
+    border-radius: 50%;
+    color: white;
+}
+
+.dropdown-item-text {
+    flex: 1;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.social-links a {
+    font-size: 1.2rem;
+    color: var(--telegram-blue);
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--telegram-light-blue);
+    transform: scale(1.1);
+}
+
+/* Recent Posts Section */
+.recent-posts {
+    margin-top: 20px;
+}
+
+.recent-posts h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.recent-posts h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(135deg, var(--telegram-blue), var(--telegram-light-blue));
+    border-radius: 2px;
+}
+
+.modern-posts-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.modern-post-card {
+    background: var(--telegram-white);
+    border-radius: 12px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.modern-post-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    background: var(--telegram-hover);
+}
+
+.modern-post-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.modern-post-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.modern-post-date {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+.modern-post-arrow {
+    font-size: 1.5rem;
+    color: var(--telegram-blue);
+    margin-left: 10px;
+}
+
+/* Footer */
+.footer {
+    background: var(--telegram-white);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    margin-top: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.channel-info a {
+    color: var(--telegram-blue);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.channel-info a:hover {
+    color: var(--telegram-light-blue);
+}
+
+.copyright {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Back to top and home buttons */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--telegram-blue), var(--telegram-light-blue));
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 12px rgba(0, 136, 204, 0.3);
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    z-index: 1000;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    transform: translateY(-3px);
+}
+
+.back-to-home {
+    position: fixed;
+    bottom: 90px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+    transition: all 0.3s ease;
+}
+
+.back-to-home:hover {
+    transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .profile-pic {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .profile-name {
+        font-size: 1.2rem;
+    }
+    
+    .subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .featured-cards-grid {
+        gap: 8px;
+    }
+    
+    .featured-card {
+        padding: 12px;
+        height: 75px;
+    }
+    
+    .featured-card-icon {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .featured-card-icon img {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .featured-card-content h3 {
+        font-size: 1rem;
+    }
+    
+    .cards-grid {
+        gap: 8px;
+    }
+    
+    .card {
+        padding: 12px;
+        gap: 10px;
+    }
+    
+    .card-icon {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .card-icon img {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .card-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    .sub-sections-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+    
+    .dropdown-card {
+        height: 38px;
+    }
+    
+    .dropdown-header {
+        font-size: 0.85rem;
+    }
+    
+    .sub-card {
+        padding: 10px;
+        min-height: 55px;
+        gap: 8px;
+    }
+    
+    .sub-card-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .sub-card-text {
+        font-size: 0.95rem;
+    }
+    
+    .section-title {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+    
+    .back-to-top,
+    .back-to-home {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+    
+    .back-to-home {
+        bottom: 75px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-pic {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .profile-name {
+        font-size: 1.1rem;
+    }
+    
+    .featured-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+    }
+    
+    .featured-card {
+        padding: 10px;
+        height: 70px;
+    }
+    
+    .featured-card-icon {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .featured-card-icon img {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .featured-card-content h3 {
+        font-size: 0.9rem;
+    }
+    
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .card {
+        min-height: 70px;
+    }
+    
+    .card-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .card-icon img {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .card-content h3 {
+        font-size: 1.1rem;
+    }
+    
+    .sub-card {
+        padding: 8px;
+        min-height: 50px;
+        gap: 6px;
+    }
+    
+    .sub-card-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1.1rem;
+    }
+    
+    .sub-card-text {
+        font-size: 0.85rem;
+    }
+    
+    .section-title {
+        font-size: 1.3rem;
+    }
+    
+    .footer {
+        padding: 15px;
+    }
+    
+    .channel-info a {
+        font-size: 1.1rem;
+    }
+}
+@media (max-width: 768px) {
+    .social-links a {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .social-links a {
+        font-size: 1rem;
+    }
+}
+@media (max-width: 768px) {
+  .footer .social-icons a i {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer .social-icons a i {
+    font-size: 1.1rem;
+  }
+}
+/* Social Links */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* تم تقليل المسافة بين الأيقونات */
+    margin: 15px 0;
+}
+
+.social-links a {
+    font-size: 1.5rem; /* تم تصغير حجم الخط من 1.5rem */
+    color: var(--telegram-blue);
+    transition: all 0.3s ease;
+}
+
+.social-links a img {
+    width: 30px; /* تم تصغير الحجم من 30px */
+    height: 30px; /* تم تصغير الحجم من 30px */
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--telegram-light-blue);
+    transform: scale(1.1);
+}
+
+/* تعديلات حجم الأيقونات للجوال */
+@media (max-width: 768px) {
+    .social-links {
+        gap: 10px;
+    }
+    
+    .social-links a {
+        font-size: 1.2rem;
+    }
+    
+    .social-links a img {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .social-links {
+        gap: 9px;
+    }
+    
+    .social-links a {
+        font-size: 1rem;
+    }
+    
+    .social-links a img {
+        width: 45px;
+        height: 45px;
+    }
+        }
