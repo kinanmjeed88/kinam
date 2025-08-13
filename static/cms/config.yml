@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: kinanmjeed88/kinam
-  branch: main
+  branch: master
 
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
