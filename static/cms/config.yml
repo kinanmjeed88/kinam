@@ -12,14 +12,14 @@ collections:
     files:
       - label: "الإعلانات"
         name: "advertisements"
-        file: "data/settings/advertisements.md"
+        file: "content/settings/advertisements.md"
         fields:
           - {label: "نص الإعلان", name: "adText", widget: "string", default: "مرحباً بكم في TechTouch - موقعكم المفضل للتقنية!"}
           - {label: "تفعيل الإعلان", name: "adEnabled", widget: "boolean", default: true}
 
   - name: "posts"
     label: "المنشورات"
-    folder: "data/posts"
+    folder: "content/posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
@@ -33,7 +33,7 @@ collections:
 
   - name: "telegram"
     label: "قنوات التليجرام"
-    folder: "data/telegram"
+    folder: "content/telegram"
     create: true
     slug: "{{slug}}"
     fields:
