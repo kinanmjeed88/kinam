@@ -1,7 +1,10 @@
 backend:
-  name: github
-  repo: kinanmjeed88/kinam
+  name: git-gateway
   branch: master
+  auth_scope: repo
+  auth_url: https://dev-nd1cktzyoebormj8.auth0.com/oauth/token
+  base_url: https://dev-nd1cktzyoebormj8.auth0.com
+  auth_provider: auth0
 
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
