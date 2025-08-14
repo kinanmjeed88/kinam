@@ -1,14 +1,21 @@
 {{ define "main" }}
 <div class="container">
     <h1>{{ .Title }}</h1>
-    {{ range .Paginator.Pages }}
-    <div class="post-list-item">
-        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-        <p>{{ .Summary }}</p>
-        <a href="{{ .Permalink }}">اقرأ المزيد</a>
+    <div class="modern-posts-grid">
+        {{ range .Paginator.Pages }}
+        <div class="modern-post-card" onclick="goToPost(\'{{ .Permalink }}\')">
+            <div class="modern-post-content">
+                <div class="modern-post-title">{{ .Title }}</div>
+                <div class="modern-post-date">{{ .Date.Format "2006-01-02" }}</div>
+            </div>
+            <div class="modern-post-arrow">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </div>
+        {{ end }}
     </div>
-    {{ end }}
     {{ template "_internal/pagination.html" . }}
 </div>
 {{ end }}
+
 

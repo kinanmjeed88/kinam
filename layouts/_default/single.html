@@ -27,6 +27,14 @@
         </a>
     </div>
     {{ end }}
+
+    {{ if .Params.telegramLink }}
+    <div class="telegram-section">
+        <a href="{{ .Params.telegramLink }}" target="_blank" class="telegram-button">
+            <i class="fab fa-telegram-plane"></i> رابط التليجرام
+        </a>
+    </div>
+    {{ end }}
     
     <footer class="post-footer">
         <div class="post-navigation">
@@ -45,4 +53,5 @@
     </footer>
 </article>
 {{ end }}
+
 
