@@ -1,0 +1,14 @@
+{{ define "main" }}
+<div class="container">
+    <h1>{{ .Title }}</h1>
+    {{ range .Paginator.Pages }}
+    <div class="post-list-item">
+        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        <p>{{ .Summary }}</p>
+        <a href="{{ .Permalink }}">اقرأ المزيد</a>
+    </div>
+    {{ end }}
+    {{ template "_internal/pagination.html" . }}
+</div>
+{{ end }}
+

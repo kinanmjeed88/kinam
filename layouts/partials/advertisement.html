@@ -1,0 +1,8 @@
+{{ with .Site.Data.settings.advertisements }}
+{{ if .adEnabled }}
+<div class="advertisement-banner">
+    <p>{{ .adText }} <span class="ad-pulse">إعلان</span></p>
+</div>
+{{ end }}
+{{ end }}
+
