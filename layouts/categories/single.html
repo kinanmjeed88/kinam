@@ -7,11 +7,10 @@
     </div>
 
     <div class="posts-container">
-        {{ $categoryName := .Params.category }}
-        {{ $posts := where .Site.RegularPages ".Params.category" "eq" $categoryName }}
+        {{ $posts := .RegularPages }}
         {{ if $posts }}
             {{ range (.Paginate $posts 10).Pages }}
-            <div class="category-post-card" onclick="goToPost('{{ .Permalink }}')">
+            <div class="category-post-card" onclick="goToPost(\'{{ .Permalink }}\')">
                 <div class="post-date">{{ .Date.Format "2006/01/02" }}</div>
                 <h3 class="post-title">{{ .Title }}</h3>
                 <p class="post-description">{{ .Params.description }}</p>
@@ -20,8 +19,7 @@
         {{ else }}
             <div class="no-posts-message">
                 <p>لا توجد منشورات في هذه الفئة حالياً.</p>
-                <p>البحث عن: {{ $categoryName }}</p>
-                <p>عدد المنشورات الكلي: {{ len .Site.RegularPages }}</p>
+                <p>عدد المنشورات الكلي: {{ len .RegularPages }}</p>
             </div>
         {{ end }}
     </div>
@@ -45,4 +43,5 @@
 </div>
 
 {{ end }}
+
 
