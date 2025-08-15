@@ -7,7 +7,8 @@
     </div>
 
     <div class="posts-container">
-        {{ $posts := .Data.Pages }}
+        {{ $categoryName := .Title }}
+        {{ $posts := where .Site.RegularPages "Type" "posts" | where "Params.categories" "intersect" (slice $categoryName) }}
         {{ if $posts }}
             {{ range (.Paginate $posts 10).Pages }}
             <div class="category-post-card" onclick="goToPost(\'{{ .Permalink }}\')">
