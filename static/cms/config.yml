@@ -19,6 +19,12 @@ collections:
         fields:
           - {label: "نص الإعلان", name: "adText", widget: "string", default: "مرحباً بكم في TechTouch - موقعكم المفضل للتقنية!"}
           - {label: "تفعيل الإعلان", name: "adEnabled", widget: "boolean", default: true}
+      - label: "الصورة الشخصية"
+        name: "profile"
+        file: "content/settings/profile.md"
+        fields:
+          - {label: "الصورة الشخصية", name: "profileImage", widget: "image", default: "/images/default-profile.png"}
+          - {label: "اسم القناة", name: "channelName", widget: "string", default: "TechTouch"}
 
   - name: "posts"
     label: "المنشورات"
@@ -28,7 +34,7 @@ collections:
     fields:
       - {label: "العنوان", name: "title", widget: "string"}
       - {label: "التاريخ", name: "date", widget: "datetime"}
-      - {label: "الفئة", name: "category", widget: "select", options: ["posts", "games", "sports"]}
+      - {label: "الفئة", name: "category", widget: "select", options: ["posts", "games", "sports", "movies"]}
       - {label: "الصورة", name: "image", widget: "image", required: false}
       - {label: "المحتوى", name: "body", widget: "markdown"}
       - {label: "رابط التليجرام", name: "telegramLink", widget: "string", required: false}

@@ -40,6 +40,7 @@ body {
 
 .channel-name {
     font-size: 2rem;
+    color: white; /* أبيض */
     font-weight: 700;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -47,6 +48,11 @@ body {
 .profile-pic-container {
     width: 60px;
     height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .profile-pic {
@@ -55,6 +61,7 @@ body {
     border-radius: 50%;
     border: 3px solid white;
     object-fit: cover;
+    object-position: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -77,18 +84,29 @@ body {
 }
 
 .ad-highlight {
-    background: #e74c3c; /* أحمر داكن */
+    background: #000000; /* أسود */
     color: white;
     padding: 3px 8px;
     border-radius: 5px;
     margin-left: 5px;
-    animation: pulse 2s infinite;
+    animation: redPulse 2s infinite;
     box-shadow: 0 2px 5px rgba(255, 0, 0, 0.3);
 }
 
-@keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.7; transform: scale(1.05); }
+.ad-text {
+    font-size: 0.9rem; /* حجم خط صغير */
+    font-weight: 400;
+}
+
+@keyframes redPulse {
+    0%, 100% { 
+        background: #000000;
+        box-shadow: 0 2px 5px rgba(255, 0, 0, 0.3);
+    }
+    50% { 
+        background: #e74c3c;
+        box-shadow: 0 2px 10px rgba(255, 0, 0, 0.6);
+    }
 }
 
 /* المحتوى الرئيسي */
@@ -350,24 +368,28 @@ body {
 }
 
 .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    gap: 15px;
     margin-bottom: 15px;
-    flex-wrap: wrap;
+    max-width: 300px;
+    margin: 0 auto 15px auto;
 }
 
 .social-link {
     color: white;
     text-decoration: none;
-    font-size: 1.1rem;
-    padding: 8px 15px;
-    border-radius: 25px;
+    font-size: 1.5rem;
+    padding: 12px;
+    border-radius: 50%;
     background: rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
 }
 
 .social-link:hover {
