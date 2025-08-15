@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Cairo', sans-serif;
-    background: linear-gradient(135deg, #1B8EEF 0%, #0C18C0 100%);
+    background: linear-gradient(135deg, #e0f2f7 0%, #c2e9fb 100%); /* ألوان فاتحة وأنيقة */
     min-height: 100vh;
     color: #333;
     direction: rtl;
@@ -22,7 +22,7 @@ body {
 
 /* هوية القناة */
 .channel-identity {
-    background: linear-gradient(135deg, #1B8EEF, #0C18C0);
+    background: linear-gradient(135deg, #4a90e2, #50e3c2); /* أزرق مخضر */
     color: white;
     padding: 15px 0;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -60,7 +60,7 @@ body {
 
 /* شريط الإعلان */
 .advertisement {
-    background: #FFD700;
+    background: #ffeb3b; /* أصفر فاقع */
     color: #333;
     padding: 10px 0;
     text-align: center;
@@ -77,7 +77,7 @@ body {
 }
 
 .ad-highlight {
-    background: #FF0000;
+    background: #e74c3c; /* أحمر داكن */
     color: white;
     padding: 3px 8px;
     border-radius: 5px;
@@ -138,7 +138,7 @@ body {
 }
 
 .post-card {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%); /* بنفسجي */
     color: white;
     border-radius: 12px;
     padding: 15px;
@@ -153,7 +153,7 @@ body {
 }
 
 .all-posts-card {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); /* أزرق */
 }
 
 .post-title {
@@ -189,7 +189,7 @@ body {
 }
 
 .modal-content {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%); /* رمادي داكن */
     margin: 5% auto;
     padding: 30px;
     border-radius: 20px;
@@ -269,7 +269,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #1abc9c, #16a085); /* أخضر مائي */
     border-radius: 50%;
     color: white;
     flex-shrink: 0;
@@ -314,7 +314,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #f39c12, #e67e22); /* برتقالي */
     border-radius: 50%;
     color: white;
     flex-shrink: 0;
@@ -402,12 +402,12 @@ body {
 
 .back-to-top {
     right: 20px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #2ecc71, #27ae60); /* أخضر */
 }
 
 .back-to-home {
     right: 80px;
-    background: linear-gradient(135deg, #f093fb, #f5576c);
+    background: linear-gradient(135deg, #9b59b6, #8e44ad); /* بنفسجي */
 }
 
 .back-to-top.show, .back-to-home.show {

@@ -133,14 +133,6 @@ function openDropdownModal(dropdownId, title) {
     
     // بيانات القوائم المنسدلة
     const dropdownData = {
-        'movies-dropdown': [
-            { icon: '🎬', text: 'تـ Cinemana X ايرثلنك', url: 'https://t.me/techtouch7/173' },
-            { icon: '🎭', text: 'تـ CEE أفلام', url: 'https://t.me/techtouch7/174' },
-            { icon: '📽️', text: 'تـ Monveibox أفلام', url: 'https://t.me/techtouch7/2070' },
-            { icon: '🎪', text: 'سينمانا', url: 'https://t.me/techtouch7/1668' },
-            { icon: '🍿', text: 'نتفلكس محاني', url: 'https://t.me/techtouch7/2676' },
-            { icon: '📺', text: 'سيمو دراما', url: 'https://t.me/techtouch7/211?single' }
-        ],
         'sports-dropdown': [
             { icon: '📺', text: 'MixFlix tv', url: 'https://t.me/techtouch7/1450' },
             { icon: '📺', text: 'دراما لايف tv', url: 'https://t.me/techtouch7/1686' },
@@ -148,6 +140,14 @@ function openDropdownModal(dropdownId, title) {
             { icon: '🏀', text: 'ياسين tv', url: 'https://t.me/techtouch7/136' },
             { icon: '🏈', text: 'تـ BlackUltra', url: 'https://t.me/techtouch7/2719' },
             { icon: '🎾', text: 'تـ ZAIN LIVE', url: 'https://t.me/techtouch7/1992' }
+        ],
+        'movies-dropdown': [
+            { icon: '🎬', text: 'تـ Cinemana X ايرثلنك', url: 'https://t.me/techtouch7/173' },
+            { icon: '🎭', text: 'تـ CEE أفلام', url: 'https://t.me/techtouch7/174' },
+            { icon: '📽️', text: 'تـ Monveibox أفلام', url: 'https://t.me/techtouch7/2070' },
+            { icon: '🎪', text: 'سينمانا', url: 'https://t.me/techtouch7/1668' },
+            { icon: '🍿', text: 'نتفلكس محاني', url: 'https://t.me/techtouch7/2676' },
+            { icon: '📺', text: 'سيمو دراما', url: 'https://t.me/techtouch7/211?single' }
         ],
         'video-dropdown': [
             { icon: '✂️', text: 'تـ Viva cut بديل كاب كات', url: 'https://t.me/techtouch7/2975?single' },
@@ -186,6 +186,16 @@ function openDropdownModal(dropdownId, title) {
     }
     
     modal.style.display = 'block';
+}
+
+// فتح قسم التطبيقات الرياضية
+function openSportsApps() {
+    openDropdownModal('sports-dropdown', '⚽ أفضل التطبيقات الرياضية');
+}
+
+// فتح قسم تطبيقات الأفلام
+function openMovieApps() {
+    openDropdownModal('movies-dropdown', '🎬 أفضل تطبيقات الأفلام');
 }
 
 // التنقل إلى منشور
