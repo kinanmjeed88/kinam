@@ -7,7 +7,7 @@
     </div>
 
     <div class="posts-container">
-        {{ $posts := .Data.Pages }}
+        {{ $posts := .Pages }}
         {{ if $posts }}
             {{ range (.Paginate $posts 10).Pages }}
             <div class="category-post-card" onclick="goToPost(\'{{ .Permalink }}\')">
