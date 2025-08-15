@@ -24,6 +24,6 @@ defaultContentLanguage = "ar"
 
 
 [taxonomies]
-  category = "categories"
+  category = "category"
 
 
