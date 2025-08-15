@@ -27,14 +27,59 @@ collections:
           - {label: "اسم القناة", name: "channelName", widget: "string", default: "TechTouch"}
 
   - name: "posts"
-    label: "المنشورات"
+    label: "المنشورات العامة"
     folder: "content/posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "العنوان", name: "title", widget: "string"}
       - {label: "التاريخ", name: "date", widget: "datetime"}
-      - {label: "الفئة", name: "category", widget: "select", options: ["posts", "games", "sports", "movies"], hint: "اختر sports للتطبيقات الرياضية أو movies لتطبيقات الأفلام"}
+      - {label: "الفئة", name: "category", widget: "hidden", default: "posts"}
+      - {label: "الصورة", name: "image", widget: "image", required: false}
+      - {label: "المحتوى", name: "body", widget: "markdown"}
+      - {label: "رابط التليجرام", name: "telegramLink", widget: "string", required: false}
+      - {label: "رابط خارجي", name: "link", widget: "string", required: false}
+
+  - name: "games"
+    label: "الألعاب"
+    folder: "content/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    filter: {field: "category", value: "games"}
+    fields:
+      - {label: "العنوان", name: "title", widget: "string"}
+      - {label: "التاريخ", name: "date", widget: "datetime"}
+      - {label: "الفئة", name: "category", widget: "hidden", default: "games"}
+      - {label: "الصورة", name: "image", widget: "image", required: false}
+      - {label: "المحتوى", name: "body", widget: "markdown"}
+      - {label: "رابط التليجرام", name: "telegramLink", widget: "string", required: false}
+      - {label: "رابط خارجي", name: "link", widget: "string", required: false}
+
+  - name: "sports"
+    label: "أفضل التطبيقات الرياضية"
+    folder: "content/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    filter: {field: "category", value: "sports"}
+    fields:
+      - {label: "العنوان", name: "title", widget: "string"}
+      - {label: "التاريخ", name: "date", widget: "datetime"}
+      - {label: "الفئة", name: "category", widget: "hidden", default: "sports"}
+      - {label: "الصورة", name: "image", widget: "image", required: false}
+      - {label: "المحتوى", name: "body", widget: "markdown"}
+      - {label: "رابط التليجرام", name: "telegramLink", widget: "string", required: false}
+      - {label: "رابط خارجي", name: "link", widget: "string", required: false}
+
+  - name: "movies"
+    label: "أفضل تطبيقات الأفلام"
+    folder: "content/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    filter: {field: "category", value: "movies"}
+    fields:
+      - {label: "العنوان", name: "title", widget: "string"}
+      - {label: "التاريخ", name: "date", widget: "datetime"}
+      - {label: "الفئة", name: "category", widget: "hidden", default: "movies"}
       - {label: "الصورة", name: "image", widget: "image", required: false}
       - {label: "المحتوى", name: "body", widget: "markdown"}
       - {label: "رابط التليجرام", name: "telegramLink", widget: "string", required: false}
@@ -49,7 +94,6 @@ collections:
       - {label: "اسم القناة", name: "title", widget: "string"}
       - {label: "الوصف", name: "description", widget: "string"}
       - {label: "الأيقونة", name: "icon", widget: "string", hint: "مثال: fas fa-gamepad"}
-
       - {label: "الترتيب", name: "order", widget: "number", default: 1}
 
 
