@@ -28,7 +28,7 @@ collections:
 
   - name: "posts"
     label: "المنشورات العامة"
-    folder: "content/posts"
+    folder: "content/general-posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
@@ -42,7 +42,7 @@ collections:
 
   - name: "games"
     label: "الألعاب"
-    folder: "content/posts"
+    folder: "content/games"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     filter: {field: "category", value: "games"}
@@ -57,7 +57,7 @@ collections:
 
   - name: "sports"
     label: "أفضل التطبيقات الرياضية"
-    folder: "content/posts"
+    folder: "content/sports"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     filter: {field: "category", value: "sports"}
@@ -72,7 +72,7 @@ collections:
 
   - name: "movies"
     label: "أفضل تطبيقات الأفلام"
-    folder: "content/posts"
+    folder: "content/movies"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     filter: {field: "category", value: "movies"}
