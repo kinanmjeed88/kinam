@@ -1,51 +1,51 @@
 {{ define "main" }}
 <article class="single-post">
-    <header class="post-header">
-        <h1>{{ .Title }}</h1>
-        <div class="post-meta">
-            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
-            {{ if .Params.category }}
-            <span class="post-category">{{ .Params.category }}</span>
-            {{ end }}
-        </div>
+    <!-- العنوان والتاريخ في الوسط -->
+    <header class="post-header-center">
+        <h1 class="post-title-center">{{ .Title }}</h1>
+        <div class="post-date-center">{{ .Date.Format "2006/01/02" }}</div>
     </header>
     
+    <!-- الصورة في الوسط داخل بطاقة -->
     {{ if .Params.image }}
-    <div class="post-image">
-        <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" class="responsive-image">
+    <div class="post-image-card">
+        <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" class="post-image-responsive">
     </div>
     {{ end }}
     
-    <div class="post-content">
-        {{ .Content }}
-    </div>
-    
-    {{ if .Params.file }}
-    <div class="download-section">
-        <a href="{{ .Params.file | relURL }}" target="_blank" class="download-button">
-            <i class="fas fa-download"></i> تحميل الملف
-        </a>
-    </div>
-    {{ end }}
+    <!-- المحتوى داخل بطاقة -->
+    <div class="post-content-card">
+        <div class="post-content-text">
+            {{ .Content }}
+        </div>
+        
+        <!-- روابط التحميل داخل نفس البطاقة -->
+        <div class="download-links">
+            {{ if .Params.file }}
+            <a href="{{ .Params.file }}" target="_blank" class="download-link">
+                <i class="fas fa-download"></i> تحميل الملف
+            </a>
+            {{ end }}
 
-    {{ if .Params.telegramLink }}
-    <div class="telegram-section">
-        <a href="{{ .Params.telegramLink }}" target="_blank" class="telegram-button">
-            <i class="fab fa-telegram-plane"></i> رابط التليجرام
-        </a>
+            {{ if .Params.telegramLink }}
+            <a href="{{ .Params.telegramLink }}" target="_blank" class="telegram-link">
+                <i class="fab fa-telegram-plane"></i> رابط التليجرام
+            </a>
+            {{ end }}
+        </div>
     </div>
-    {{ end }}
     
-    <footer class="post-footer">
+    <!-- التنقل بين المنشورات -->
+    <footer class="post-navigation-footer">
         <div class="post-navigation">
             {{ if .PrevInSection }}
-            <a href="{{ .PrevInSection.Permalink }}" class="prev-post">
+            <a href="{{ .PrevInSection.Permalink }}" class="nav-link prev-post">
                 <i class="fas fa-arrow-right"></i> المنشور السابق
             </a>
             {{ end }}
             
             {{ if .NextInSection }}
-            <a href="{{ .NextInSection.Permalink }}" class="next-post">
+            <a href="{{ .NextInSection.Permalink }}" class="nav-link next-post">
                 المنشور التالي <i class="fas fa-arrow-left"></i>
             </a>
             {{ end }}

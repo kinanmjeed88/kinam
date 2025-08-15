@@ -47,35 +47,17 @@
 
     <!-- بطاقة التطبيقات الرياضية -->
     <section class="sports-section">
-        <div class="section-card">
+        <div class="section-card" onclick="goToSection('/categories/sports/')">
             <h2 class="section-title">⚽ أفضل التطبيقات الرياضية</h2>
             <p class="section-description">اكتشف أفضل التطبيقات الرياضية والقنوات المباشرة</p>
-            <div class="posts-grid">
-                {{ range first 3 (where .Site.RegularPages "Params.category" "sports") }}
-                <div class="post-card" onclick="goToPost('{{ .Permalink }}')">
-                    <div class="post-date">{{ .Date.Format "2006/01/02" }}</div>
-                    <div class="post-title">{{ .Title }}</div>
-                    <div class="post-description">{{ .Params.description }}</div>
-                </div>
-                {{ end }}
-            </div>
         </div>
     </section>
 
     <!-- بطاقة تطبيقات الأفلام -->
     <section class="movies-section">
-        <div class="section-card">
+        <div class="section-card" onclick="goToSection('/categories/movies/')">
             <h2 class="section-title">🎬 أفضل تطبيقات الأفلام</h2>
             <p class="section-description">أحدث تطبيقات الأفلام والمسلسلات</p>
-            <div class="posts-grid">
-                {{ range first 3 (where .Site.RegularPages "Params.category" "movies") }}
-                <div class="post-card" onclick="goToPost('{{ .Permalink }}')">
-                    <div class="post-date">{{ .Date.Format "2006/01/02" }}</div>
-                    <div class="post-title">{{ .Title }}</div>
-                    <div class="post-description">{{ .Params.description }}</div>
-                </div>
-                {{ end }}
-            </div>
         </div>
     </section>
 

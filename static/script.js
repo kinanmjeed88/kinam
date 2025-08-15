@@ -204,8 +204,8 @@ function goToPost(permalink) {
 }
 
 // التنقل إلى قسم
-function goToSection(permalink) {
-    window.location.href = permalink;
+function goToSection(sectionPath) {
+    window.location.href = sectionPath;
 }
 
 // العودة للأعلى

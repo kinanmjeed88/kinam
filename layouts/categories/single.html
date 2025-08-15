@@ -1,0 +1,39 @@
+{{ define "main" }}
+
+<div class="category-page">
+    <div class="category-header">
+        <h1 class="category-title">{{ .Title }}</h1>
+        <p class="category-description">{{ .Description }}</p>
+    </div>
+
+    <div class="posts-container">
+        {{ $posts := where .Site.RegularPages "Params.category" .Params.category }}
+        {{ range (.Paginate $posts 10).Pages }}
+        <div class="category-post-card" onclick="goToPost('{{ .Permalink }}')">
+            <div class="post-date">{{ .Date.Format "2006/01/02" }}</div>
+            <h3 class="post-title">{{ .Title }}</h3>
+            <p class="post-description">{{ .Params.description }}</p>
+        </div>
+        {{ end }}
+    </div>
+
+    <!-- التنقل بين الصفحات -->
+    {{ if gt .Paginator.TotalPages 1 }}
+    <div class="pagination">
+        {{ if .Paginator.HasPrev }}
+        <a href="{{ .Paginator.Prev.URL }}" class="pagination-link">السابق</a>
+        {{ end }}
+        
+        <span class="pagination-info">
+            صفحة {{ .Paginator.PageNumber }} من {{ .Paginator.TotalPages }}
+        </span>
+        
+        {{ if .Paginator.HasNext }}
+        <a href="{{ .Paginator.Next.URL }}" class="pagination-link">التالي</a>
+        {{ end }}
+    </div>
+    {{ end }}
+</div>
+
+{{ end }}
+
