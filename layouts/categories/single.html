@@ -7,7 +7,7 @@
     </div>
 
     <div class="posts-container">
-        {{ $posts := where .Site.RegularPages "Params.category" .Params.category }}
+        {{ $posts := where .Site.RegularPages ".Params.category" .Params.category }}
         {{ if $posts }}
             {{ range (.Paginate $posts 10).Pages }}
             <div class="category-post-card" onclick="goToPost('{{ .Permalink }}')">
