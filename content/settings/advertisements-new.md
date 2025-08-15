@@ -1,4 +1,4 @@
 ---
-adText: TechTouch موقعكم المفضل للتقنية
+adText: ✌️ موقعكم المفضل للتقنية
 adEnabled: true
 ---
