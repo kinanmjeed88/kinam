@@ -15,7 +15,7 @@ collections:
     files:
       - label: "الإعلانات"
         name: "advertisements"
-        file: "content/settings/advertisements.md"
+        file: "content/settings/advertisements-new.md"
         fields:
           - {label: "نص الإعلان", name: "adText", widget: "string", default: "مرحباً بكم في TechTouch - موقعكم المفضل للتقنية!"}
           - {label: "تفعيل الإعلان", name: "adEnabled", widget: "boolean", default: true}
