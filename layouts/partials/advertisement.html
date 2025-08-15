@@ -1,7 +1,8 @@
-{{ with .Site.Data.settings.advertisements }}
-{{ if .adEnabled }}
+{{ $advertisementsPage := .Site.GetPage "content/settings/advertisements-new.md" }}
+{{ if $advertisementsPage }}
+{{ if $advertisementsPage.Params.adEnabled }}
 <div class="advertisement-banner">
-    <p>{{ .adText }} <span class="ad-pulse">إعلان</span></p>
+    <p>{{ $advertisementsPage.Params.adText }} <span class="ad-pulse">إعلان</span></p>
 </div>
 {{ end }}
 {{ end }}

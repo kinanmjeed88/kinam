@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="container single-telegram-channel">
+    <h1>{{ .Title }}</h1>
+    <div class="channel-details">
+        {{ with .Params.icon }}
+        <i class="{{ . }} channel-icon-large"></i>
+        {{ else }}
+        <i class="fas fa-paper-plane channel-icon-large"></i> <!-- أيقونة افتراضية -->
+        {{ end }}
+        <p class="channel-description">{{ .Params.description }}</p>
+        {{ with .Params.telegramLink }}
+        <a href="{{ . }}" target="_blank" class="telegram-link">انضم إلى القناة</a>
+        {{ end }}
+    </div>
+    <div class="content">
+        {{ .Content }}
+    </div>
+</div>
+{{ end }}
+
+

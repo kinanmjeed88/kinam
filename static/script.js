@@ -1,10 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     console.log("DOM loaded, initializing...");
-    requestAnimationFrame(() => {
-        setupEventListeners();
-        updateProfilePic();
-        // لا حاجة لـ loadContent() هنا، المحتوى يتم تحميله بواسطة Hugo
-    });
+    setupEventListeners();
+    updateProfilePic();
 });
 
 // تحديث الصورة الشخصية في الشريط العلوي
@@ -21,7 +18,7 @@ function updateProfilePic() {
 // إعداد مستمعي الأحداث
 function setupEventListeners() {
     // إضافة تأثيرات التفاعل للبطاقات
-    const cards = document.querySelectorAll(".post-card, .telegram-section");
+    const cards = document.querySelectorAll(".modern-post-card");
     cards.forEach(card => {
         card.addEventListener("mouseenter", function() {
             this.style.transform = "translateY(-3px) scale(1.02)";
@@ -29,16 +26,6 @@ function setupEventListeners() {
         
         card.addEventListener("mouseleave", function() {
             this.style.transform = "translateY(0) scale(1)";
-        });
-    });
-
-    // إضافة مستمعي الأحداث لأزرار الأقسام (البطاقات الصغيرة)
-    const dropdownCards = document.querySelectorAll(".dropdown-card");
-    dropdownCards.forEach(card => {
-        card.addEventListener("click", function() {
-            const modalId = this.getAttribute("onclick").match(/openDropdownModal\(\'(.*?)\'/)[1];
-            const modalTitle = this.getAttribute("onclick").match(/openDropdownModal\(\'[^\']+\', \'(.*?)\'\)/)[1];
-            openDropdownModal(modalId, modalTitle);
         });
     });
 
@@ -69,7 +56,7 @@ function scrollToTop() {
     });
 }
 
-// وظيفة فتح النافذة المنبثقة
+// وظيفة فتح النافذة المنبثقة (لأقسام التليجرام)
 function openDropdownModal(modalId, title) {
     const modal = document.getElementById("popupModal");
     const modalTitle = document.getElementById("modalTitle");
@@ -80,40 +67,15 @@ function openDropdownModal(modalId, title) {
     modalTitle.textContent = title;
     modalContent.innerHTML = ""; // مسح المحتوى السابق
 
-    let items = [];
-    if (modalId === "movies-dropdown") {
-        items = [
-            { name: "Netflix", url: "https://netflix.com" },
-            { name: "Disney+", url: "https://disneyplus.com" },
-            { name: "Amazon Prime", url: "https://primevideo.com" },
-            { name: "Shahid", url: "https://shahid.mbc.net" }
-        ];
-    } else if (modalId === "sports-dropdown") {
-        items = [
-            { name: "ESPN", url: "https://espn.com" },
-            { name: "beIN Sports", url: "https://beinsports.com" },
-            { name: "KooraLive", url: "https://kooralive.tv" },
-            { name: "Yalla Shoot", url: "https://yallashoot.com" }
-        ];
-    } else if (modalId === "video-dropdown") {
-        items = [
-            { name: "Adobe Premiere", url: "https://www.adobe.com/products/premiere.html" },
-            { name: "DaVinci Resolve", url: "https://www.blackmagicdesign.com/products/davinciresolve/" },
-            { name: "Filmora", url: "https://filmora.wondershare.com/" }
-        ];
-    } else if (modalId === "misc-dropdown") {
-        items = [
-            { name: "قناة الألعاب", url: "https://t.me/techtouch0/4882" },
-            { name: "جميع قنواتي", url: "https://t.me/addlist/Gxcy1FFJONhkMjFi" }
-        ];
+    // هنا يجب أن يتم جلب المحتوى ديناميكيًا من Hugo وليس روابط ثابتة
+    // سيتم تعديل هذا الجزء لاحقًا ليعتمد على بيانات Hugo
+    if (modalId === "telegram-channels") {
+        // مثال: يمكننا هنا جلب بيانات قنوات التليجرام من مصدر بيانات Hugo
+        // حاليًا، سنعرض رسالة توضيحية
+        modalContent.innerHTML = `<p>سيتم عرض قنوات التليجرام هنا ديناميكيًا.</p>`;
+    } else {
+        modalContent.innerHTML = `<p>محتوى ${title} سيتم عرضه هنا.</p>`;
     }
-
-    items.forEach(item => {
-        const itemDiv = document.createElement("div");
-        itemDiv.className = "modal-item";
-        itemDiv.innerHTML = `<a href="${item.url}" target="_blank">${item.name}</a>`;
-        modalContent.appendChild(itemDiv);
-    });
 
     modal.style.display = "block";
 
@@ -147,8 +109,6 @@ function goToSection(permalink) {
 function updateAd() {
     const newAdText = document.getElementById("ad-input").value;
     if (newAdText) {
-        // هنا يجب أن يتم حفظ التغيير عبر Netlify CMS API وليس localStorage
-        // حالياً، هذا الجزء مخصص للتفاعل مع حقل الإدخال في لوحة التحكم
         alert("تم تحديث الإعلان بنجاح! (التغيير سيظهر بعد نشر Netlify)");
     } else {
         alert("يرجى إدخال نص الإعلان!");
@@ -157,7 +117,6 @@ function updateAd() {
 
 // وظيفة إضافة منشور جديد (لصفحة الإدارة فقط)
 function addPost() {
-    // هنا يجب أن يتم حفظ المنشور عبر Netlify CMS API وليس localStorage
     alert("تم إضافة المنشور بنجاح! (التغيير سيظهر بعد نشر Netlify)");
 }
 
@@ -167,7 +126,6 @@ function updateProfilePicture() {
     if (profilePicInput && profilePicInput.files && profilePicInput.files[0]) {
         const reader = new FileReader();
         reader.onload = function(e) {
-            // هنا يجب أن يتم حفظ الصورة عبر Netlify CMS API وليس localStorage
             localStorage.setItem("profilePic", e.target.result);
             updateProfilePic();
             alert("تم تحديث الصورة الشخصية بنجاح! (التغيير سيظهر بعد نشر Netlify)");

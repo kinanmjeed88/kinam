@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div class="container">
+    <h1>{{ .Title }}</h1>
+    <div class="telegram-channels-grid">
+        {{ range .Paginator.Pages }}
+        <div class="telegram-channel-card" onclick="goToPost(\'{{ .Permalink }}\')">
+            <div class="channel-icon">
+                {{ with .Params.icon }}
+                <i class="{{ . }}"></i>
+                {{ else }}
+                <i class="fas fa-paper-plane"></i> <!-- أيقونة افتراضية -->
+                {{ end }}
+            </div>
+            <div class="channel-content">
+                <h3>{{ .Title }}</h3>
+                <p>{{ .Params.description }}</p>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+    {{ template "_internal/pagination.html" . }}
+</div>
+{{ end }}
+
+
