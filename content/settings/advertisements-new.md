@@ -1,4 +1,4 @@
 ---
-adText: "TechTouch 7 موقعكم المفضل للتقنية"
+adText: TechTouch موقعكم المفضل للتقنية
 adEnabled: true
 ---
