@@ -3,8 +3,7 @@ title: MovieBox Pro mo
 date: 2025-07-29T13:11:27.452Z
 draft: false
 link: "1"
-categories:
-  - movies
+category: movies
 description: تطبيقات افـلام
 image: /images/uploads/1000118976.jpg
 file: https://t.me/techtouch7/2070
