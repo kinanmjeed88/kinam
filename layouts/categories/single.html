@@ -7,7 +7,8 @@
     </div>
 
     <div class="posts-container">
-        {{ $posts := .Pages }}
+        {{ $categoryName := .Title }}
+        {{ $posts := where .Site.RegularPages "Type" "posts" | where "Params.category" "eq" $categoryName }}
         {{ if $posts }}
             {{ range (.Paginate $posts 10).Pages }}
             <div class="category-post-card" onclick="goToPost(\'{{ .Permalink }}\')">
@@ -19,7 +20,7 @@
         {{ else }}
             <div class="no-posts-message">
                 <p>لا توجد منشورات في هذه الفئة حالياً.</p>
-                <p>عدد المنشورات الكلي: {{ len .Pages }}</p>
+                <p>عدد المنشورات الكلي: {{ len $posts }}</p>
             </div>
         {{ end }}
     </div>
