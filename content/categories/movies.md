@@ -1,8 +1,7 @@
 ---
 title: "أفضل تطبيقات الأفلام"
 description: "أحدث تطبيقات الأفلام والمسلسلات"
-type: "category"
+type: "categories"
 category: "movies"
-layout: "category"
 ---
 

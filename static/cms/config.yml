@@ -34,7 +34,7 @@ collections:
     fields:
       - {label: "العنوان", name: "title", widget: "string"}
       - {label: "التاريخ", name: "date", widget: "datetime"}
-      - {label: "الفئة", name: "category", widget: "select", options: ["posts", "games", "sports", "movies"]}
+      - {label: "الفئة", name: "category", widget: "select", options: ["posts", "games", "sports", "movies"], hint: "اختر sports للتطبيقات الرياضية أو movies لتطبيقات الأفلام"}
       - {label: "الصورة", name: "image", widget: "image", required: false}
       - {label: "المحتوى", name: "body", widget: "markdown"}
       - {label: "رابط التليجرام", name: "telegramLink", widget: "string", required: false}
