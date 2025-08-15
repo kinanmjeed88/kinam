@@ -10,24 +10,9 @@
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-    <div class="container">
-        {{ partial "header.html" . }}
-        {{ partial "advertisement.html" . }}
-        <main class="main-content">
-            {{ block "main" . }}{{ end }}
-        </main>
-
-        {{ partial "footer.html" . }}
-    </div>
-
-    <!-- Pop-up Modal Structure -->
-    <div id="popupModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h2 id="modalTitle"></h2>
-            <div id="modalContent" class="modal-grid"></div>
-        </div>
-    </div>
+    {{ block "main" . }}{{ end }}
+    
+    {{ partial "footer.html" . }}
 
     <!-- زر العودة للصفحة الرئيسية -->
     <button id="backToHome" class="back-to-home" onclick="window.location.href='/'">
@@ -51,29 +36,6 @@
           }
         });
       }
-    </script>
-
-    <script>
-    // إظهار/إخفاء الأزرار العائمة
-    window.addEventListener('scroll', function() {
-        const backToTopButton = document.getElementById('backToTop');
-        const backToHomeButton = document.getElementById('backToHome');
-        if (window.pageYOffset > 300) {
-            backToTopButton.classList.add('show');
-        } else {
-            backToTopButton.classList.remove('show');
-        }
-        // زر الهوم يظهر دائماً
-        backToHomeButton.classList.add('show');
-    });
-
-    // وظيفة العودة للأعلى
-    function scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    }
     </script>
 </body>
 </html>

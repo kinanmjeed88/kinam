@@ -1,87 +1,137 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, initializing...');
     
-    // إضافة تأثير النقر للبطاقات
-    const cards = document.querySelectorAll('.card, .featured-card');
-    const subCards = document.querySelectorAll('.sub-card');
+    // تحديث الصورة الشخصية
+    updateProfilePic();
+    
+    // إعداد الأزرار العائمة
+    setupFloatingButtons();
+    
+    // إعداد النوافذ المنبثقة
+    setupModals();
+    
+    // إضافة تأثيرات التفاعل
+    addInteractionEffects();
+});
+
+// تحديث الصورة الشخصية
+function updateProfilePic() {
+    const profilePicDisplay = document.getElementById("profile-pic-display");
+    if (profilePicDisplay) {
+        const savedProfilePic = localStorage.getItem("profilePic");
+        if (savedProfilePic) {
+            profilePicDisplay.src = savedProfilePic;
+        }
+    }
+}
+
+// إعداد الأزرار العائمة
+function setupFloatingButtons() {
+    window.addEventListener('scroll', function() {
+        const backToTopButton = document.getElementById('backToTop');
+        const backToHomeButton = document.getElementById('backToHome');
+        
+        if (backToTopButton) {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        }
+        
+        if (backToHomeButton) {
+            backToHomeButton.classList.add('show');
+        }
+    });
+}
+
+// إعداد النوافذ المنبثقة
+function setupModals() {
+    // إعداد modal التليجرام
+    const telegramModal = document.getElementById('telegramModal');
+    if (telegramModal) {
+        const closeButton = telegramModal.querySelector('.close-button');
+        if (closeButton) {
+            closeButton.addEventListener('click', closeTelegramModal);
+        }
+        
+        window.addEventListener('click', function(event) {
+            if (event.target === telegramModal) {
+                closeTelegramModal();
+            }
+        });
+    }
+    
+    // إعداد modal العام
+    const popupModal = document.getElementById('popupModal');
+    if (popupModal) {
+        const closeButton = popupModal.querySelector('.close-button');
+        if (closeButton) {
+            closeButton.addEventListener('click', function() {
+                popupModal.style.display = 'none';
+            });
+        }
+        
+        window.addEventListener('click', function(event) {
+            if (event.target === popupModal) {
+                popupModal.style.display = 'none';
+            }
+        });
+    }
+}
+
+// إضافة تأثيرات التفاعل
+function addInteractionEffects() {
+    const cards = document.querySelectorAll('.section-card, .post-card, .channel-item');
     
     cards.forEach(card => {
-        card.addEventListener('click', function(e) {
-            // إضافة تأثير النقر
-            this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 150);
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = '';
         });
     });
+}
 
-    // إضافة تأثير النقر للبطاقات الفرعية مع فتح الروابط
-    subCards.forEach(card => {
-        card.addEventListener('click', function(e) {
-            // إضافة تأثير النقر
-            this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 150);
-            
-            // فتح الرابط
-            const url = this.getAttribute('data-url');
-            if (url) {
-                window.open(url, '_blank');
-            }
-        });
-    });
-    
-    // إضافة تأثير التمرير السلس
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-    
-    // مراقبة العناصر للتأثيرات
-    const elementsToObserve = document.querySelectorAll('.card, .sub-card, .sub-section');
-    elementsToObserve.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
-    
-    // إضافة تأثير الجسيمات في الخلفية
-    createParticles();
+// فتح modal التليجرام
+function openTelegramModal() {
+    const modal = document.getElementById('telegramModal');
+    if (modal) {
+        modal.style.display = 'block';
+    }
+}
 
-    // Pop-up Modal functionality
+// إغلاق modal التليجرام
+function closeTelegramModal() {
+    const modal = document.getElementById('telegramModal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}
+
+// فتح قناة تليجرام
+function openTelegramChannel(url) {
+    window.open(url, '_blank');
+    closeTelegramModal();
+}
+
+// فتح modal القوائم المنسدلة
+function openDropdownModal(dropdownId, title) {
     const modal = document.getElementById('popupModal');
     const modalTitle = document.getElementById('modalTitle');
     const modalContent = document.getElementById('modalContent');
-    const closeButton = document.querySelector('#popupModal .close-button');
-
-    console.log('Modal elements:', { modal, modalTitle, modalContent, closeButton });
-
-    // Ensure modal functionality is properly initialized
-    if (closeButton) {
-        closeButton.addEventListener('click', function() {
-            modal.style.display = 'none';
-        });
+    
+    if (!modal || !modalTitle || !modalContent) {
+        console.error('Modal elements not found');
+        return;
     }
-
-    // Close modal when clicking outside of it
-    window.addEventListener('click', function(event) {
-        if (event.target === modal) {
-            modal.style.display = 'none';
-        }
-    });
-
-    // Data for dropdowns to be used in modal
+    
+    modalTitle.textContent = title;
+    modalContent.innerHTML = '';
+    
+    // بيانات القوائم المنسدلة
     const dropdownData = {
         'movies-dropdown': [
             { icon: '🎬', text: 'تـ Cinemana X ايرثلنك', url: 'https://t.me/techtouch7/173' },
@@ -113,283 +163,76 @@ document.addEventListener('DOMContentLoaded', function() {
             { icon: '📲', text: 'المنصة X للهاتف', url: 'https://t.me/techtouch7/1533' }
         ]
     };
-
-    // Function to open dropdown modal
-    window.openDropdownModal = function(dropdownId, title) {
-        console.log('Opening modal for:', dropdownId, title);
-        
-        if (!modal || !modalTitle || !modalContent) {
-            console.error('Modal elements not found');
-            return;
-        }
-        
-        modalTitle.textContent = title;
-        modalContent.innerHTML = ''; // Clear previous content
-
-        const items = dropdownData[dropdownId];
-        if (items) {
-            console.log('Creating modal items:', items.length);
-            items.forEach(item => {
-                const itemDiv = document.createElement('div');
-                itemDiv.className = 'modal-item';
-                
-                itemDiv.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    console.log('Opening URL:', item.url);
-                    window.open(item.url, '_blank');
-                    modal.style.display = 'none';
-                });
-                
-                itemDiv.innerHTML = `
-                    <span class='modal-item-icon'>${item.icon}</span>
-                    <span class='modal-item-text'>${item.text}</span>
-                `;
-                modalContent.appendChild(itemDiv);
+    
+    const items = dropdownData[dropdownId];
+    if (items) {
+        items.forEach(item => {
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'modal-item';
+            
+            itemDiv.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                window.open(item.url, '_blank');
+                modal.style.display = 'none';
             });
-        } else {
-            console.error('No items found for dropdown:', dropdownId);
-        }
-        modal.style.display = 'block';
-        console.log('Modal displayed');
-    };
-
-    // Handle dropdown card clicks properly
-    const dropdownCards = document.querySelectorAll('.dropdown-card');
-    console.log('Found dropdown cards:', dropdownCards.length);
-    
-    dropdownCards.forEach((card, index) => {
-        console.log('Setting up card', index, card);
-        
-        // إزالة onclick attribute إذا كان موجوداً لتجنب التداخل
-        card.removeAttribute('onclick');
-        
-        card.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
             
-            console.log('Dropdown card clicked:', index);
-            
-            // Add click effect
-            this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 150);
-            
-            // تحديد نوع القائمة المنسدلة بناءً على محتوى البطاقة
-            const headerElement = this.querySelector('.dropdown-header');
-            if (!headerElement) {
-                console.error('Header element not found');
-                return;
-            }
-            
-            const headerText = headerElement.textContent.trim();
-            console.log('Header text:', headerText);
-            
-            let dropdownId = '';
-            let title = '';
-            
-            if (headerText.includes('تطبيقات افلام')) {
-                dropdownId = 'movies-dropdown';
-                title = 'تطبيقات افلام';
-            } else if (headerText.includes('تطبيقات رياضيه')) {
-                dropdownId = 'sports-dropdown';
-                title = 'تطبيقات رياضيه';
-            } else if (headerText.includes('تصميم الفيديو')) {
-                dropdownId = 'video-dropdown';
-                title = 'تصميم الفيديو';
-            } else if (headerText.includes('قسم المتفرقات')) {
-                dropdownId = 'misc-dropdown';
-                title = 'قسم المتفرقات';
-            }
-            
-            console.log('Determined dropdown:', dropdownId, title);
-            
-            if (dropdownId && title) {
-                openDropdownModal(dropdownId, title);
-            } else {
-                console.error('Could not determine dropdown type for:', headerText);
-            }
+            itemDiv.innerHTML = `
+                <span class='modal-item-icon'>${item.icon}</span>
+                <span class='modal-item-text'>${item.text}</span>
+            `;
+            modalContent.appendChild(itemDiv);
         });
+    }
+    
+    modal.style.display = 'block';
+}
+
+// التنقل إلى منشور
+function goToPost(permalink) {
+    window.location.href = permalink;
+}
+
+// التنقل إلى قسم
+function goToSection(permalink) {
+    window.location.href = permalink;
+}
+
+// العودة للأعلى
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
     });
-    
-    console.log('Initialization complete');
-});
+}
 
-// دالة إنشاء الجسيمات
-function createParticles() {
-    const particlesContainer = document.createElement('div');
-    particlesContainer.className = 'particles-container';
-    particlesContainer.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: -1;
-        overflow: hidden;
-    `;
-    
-    document.body.appendChild(particlesContainer);
-    
-    // إنشاء الجسيمات
-    for (let i = 0; i < 50; i++) {
-        createParticle(particlesContainer);
+// وظائف إدارة الموقع (للاستخدام في صفحة الإدارة)
+function updateAd() {
+    const newAdText = document.getElementById("ad-input").value;
+    if (newAdText) {
+        alert("تم تحديث الإعلان بنجاح! (التغيير سيظهر بعد نشر Netlify)");
+    } else {
+        alert("يرجى إدخال نص الإعلان!");
     }
 }
 
-function createParticle(container) {
-    const particle = document.createElement('div');
-    particle.className = 'particle';
-    
-    const size = Math.random() * 4 + 2;
-    const x = Math.random() * window.innerWidth;
-    const y = Math.random() * window.innerHeight;
-    
-    particle.style.cssText = `
-        position: absolute;
-        width: ${size}px;
-        height: ${size}px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        left: ${x}px;
-        top: ${y}px;
-        animation: float ${Math.random() * 3 + 2}s ease-in-out infinite alternate;
-    `;
-    
-    container.appendChild(particle);
+function addPost() {
+    alert("تم إضافة المنشور بنجاح! (التغيير سيظهر بعد نشر Netlify)");
 }
 
-// إضافة CSS للجسيمات
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes float {
-        from {
-            transform: translateY(0px) rotate(0deg);
-            opacity: 1;
-        }
-        to {
-            transform: translateY(-20px) rotate(180deg);
-            opacity: 0.5;
-        }
+function updateProfilePicture() {
+    const profilePicInput = document.getElementById("profile-pic-input");
+    if (profilePicInput && profilePicInput.files && profilePicInput.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            localStorage.setItem("profilePic", e.target.result);
+            updateProfilePic();
+            alert("تم تحديث الصورة الشخصية بنجاح!");
+        };
+        reader.readAsDataURL(profilePicInput.files[0]);
+    } else {
+        alert("يرجى اختيار صورة!");
     }
-    
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.8);
-        backdrop-filter: blur(10px);
-    }
-
-    .modal-content {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        margin: 5% auto;
-        padding: 30px;
-        border-radius: 20px;
-        width: 90%;
-        max-width: 600px;
-        position: relative;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        animation: modalSlideIn 0.3s ease-out;
-    }
-
-    @keyframes modalSlideIn {
-        from {
-            opacity: 0;
-            transform: translateY(-50px) scale(0.9);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-    }
-
-    .close-button {
-        color: white;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-        cursor: pointer;
-        position: absolute;
-        top: 15px;
-        right: 25px;
-        transition: color 0.3s ease;
-    }
-
-    .close-button:hover {
-        color: #ffeb3b;
-    }
-
-    .modal h2 {
-        color: white;
-        text-align: center;
-        margin-bottom: 30px;
-        font-size: 2rem;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    }
-
-    .modal-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 15px;
-    }
-
-    .modal-item {
-        background: rgba(255, 255, 255, 0.95);
-        border-radius: 15px;
-        padding: 20px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .modal-item:hover {
-        transform: translateY(-5px) scale(1.02);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        background: rgba(255, 255, 255, 1);
-    }
-
-    .modal-item-icon {
-        font-size: 2rem;
-        width: 60px;
-        height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(135deg, #667eea, #764ba2);
-        border-radius: 50%;
-        color: white;
-        flex-shrink: 0;
-    }
-
-    .modal-item-text {
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: #2c3e50;
-        flex: 1;
-    }
-
-    @media (max-width: 768px) {
-        .modal-content {
-            width: 95%;
-            margin: 10% auto;
-            padding: 20px;
-        }
-
-        .modal-grid {
-            grid-template-columns: 1fr;
-        }
-    }
-`;
-document.head.appendChild(style);
+}
 
 

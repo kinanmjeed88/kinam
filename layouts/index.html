@@ -1,153 +1,149 @@
 {{ define "main" }}
-<!-- البطاقات المميزة في المقدمة -->
-<section class="featured-section">
-    <div class="featured-cards-grid">
-        <div class="featured-card" onclick="window.open('https://t.me/techtouch0/4882', '_blank')">
-            <div class="featured-card-icon">
-                <img src="{{ "new_misc_icon_1.png" | relURL }}" alt="ألعاب">
-            </div>
-            <div class="featured-card-content">
-                <h3>قناة الألعاب</h3>
-            </div>
-        </div>
 
-        <div class="featured-card" onclick="window.open('https://t.me/addlist/Gxcy1FFJONhkMjFi', '_blank')">
-            <div class="featured-card-icon">
-                <img src="{{ "new_misc_icon_2.png" | relURL }}" alt="جميع القنوات">
-            </div>
-            <div class="featured-card-content">
-                <h3>جميع قنواتي</h3>
-            </div>
+<!-- هوية القناة -->
+<header class="channel-identity">
+    <div class="identity-content">
+        <h1 class="channel-name">TechTouch</h1>
+        <div class="profile-pic-container">
+            <img id="profile-pic-display" src="{{ "default-profile.png" | relURL }}" alt="صورة شخصية" class="profile-pic">
         </div>
     </div>
-</section>
+</header>
 
-<!-- الأقسام الرئيسية -->
-<section class="main-sections">
-    <div class="cards-grid">
-        <div class="card card-photos" onclick="window.open('https://t.me/techtouch5', '_blank')">
-            <div class="card-icon">
-                <img src="{{ "new_misc_icon_3.png" | relURL }}" alt="4K">
-            </div>
-            <div class="card-content">
-                <h3>قناة الصور</h3>
+<!-- شريط الإعلان -->
+{{ partial "advertisement.html" . }}
+
+<!-- المحتوى الرئيسي -->
+<div class="main-content">
+    
+    <!-- بطاقة آخر المنشورات -->
+    <section class="posts-section">
+        <div class="section-card">
+            <h2 class="section-title">📝 آخر المنشورات</h2>
+            <div class="posts-grid">
+                {{ range first 5 (where .Site.RegularPages "Type" "posts") }}
+                <div class="post-card" onclick="goToPost('{{ .Permalink }}')">
+                    <div class="post-content">
+                        <h3 class="post-title">{{ .Title }}</h3>
+                        <p class="post-date">{{ .Date.Format "2006/01/02" }}</p>
+                        {{ if .Summary }}
+                        <p class="post-summary">{{ .Summary | truncate 100 }}</p>
+                        {{ end }}
+                    </div>
+                </div>
+                {{ end }}
+                
+                <!-- بطاقة جميع المنشورات -->
+                <div class="post-card all-posts-card" onclick="goToSection('/posts/')">
+                    <div class="post-content">
+                        <h3 class="post-title">📚 جميع المنشورات</h3>
+                        <p class="post-summary">عرض جميع المنشورات المنشورة</p>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="card card-delete" onclick="window.open('https://t.me/techtouch7/161', '_blank')">
-            <div class="card-icon">
-                <img src="{{ "delete_icon.png" | relURL }}" alt="حذف حساب">
-            </div>
-            <div class="card-content">
-                <h3>حذف حساب التلي</h3>
-            </div>
+    <!-- بطاقة التطبيقات الرياضية -->
+    <section class="sports-section">
+        <div class="section-card" onclick="goToSection('/categories/sports/')">
+            <h2 class="section-title">⚽ أفضل التطبيقات الرياضية</h2>
+            <p class="section-description">اكتشف أفضل التطبيقات الرياضية والقنوات المباشرة</p>
         </div>
+    </section>
 
-        <div class="card card-sports" onclick="window.open('https://t.me/techtouch7/124', '_blank')">
-            <div class="card-icon">
-                <img src="{{ "new_sports_icon_1.png" | relURL }}" alt="رياضة">
-            </div>
-            <div class="card-content">
-                <h3>قسم التطبيقات الرياضية</h3>
-            </div>
+    <!-- بطاقة تطبيقات الأفلام -->
+    <section class="movies-section">
+        <div class="section-card" onclick="goToSection('/categories/movies/')">
+            <h2 class="section-title">🎬 أفضل تطبيقات الأفلام</h2>
+            <p class="section-description">أحدث تطبيقات الأفلام والمسلسلات</p>
         </div>
+    </section>
 
-        <div class="card card-movies" onclick="window.open('https://t.me/techtouch7/163', '_blank')">
-            <div class="card-icon">
-                <img src="{{ "new_movie_icon_1.png" | relURL }}" alt="أفلام">
-            </div>
-            <div class="card-content">
-                <h3>قسم الأفلام</h3>
-            </div>
+    <!-- بطاقة قنوات التليجرام -->
+    <section class="telegram-section">
+        <div class="section-card telegram-card" onclick="openTelegramModal()">
+            <h2 class="section-title">📱 قنوات التليجرام</h2>
+            <p class="section-description">جميع قنوات التليجرام المتخصصة</p>
         </div>
+    </section>
 
-        <div class="card card-youtube" onclick="window.open('https://t.me/techtouch7/237', '_blank')">
-            <div class="card-icon">
-                <img src="{{ "youtube_icon.png" | relURL }}" alt="يوتيوب">
-            </div>
-            <div class="card-content">
-                <h3>قسم تطبيقات اليوتيوب</h3>
-            </div>
-        </div>
+</div>
 
-        <div class="card card-apps" onclick="window.open('https://t.me/techtouch7/47', '_blank')">
-            <div class="card-icon">
-                <img src="{{ "apps_icon.png" | relURL }}" alt="تطبيقات">
+<!-- النافذة المنبثقة لقنوات التليجرام -->
+<div id="telegramModal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeTelegramModal()">&times;</span>
+        <h2 class="modal-title">📱 قنوات التليجرام</h2>
+        <div class="telegram-channels-grid">
+            <div class="channel-item" onclick="openTelegramChannel('https://t.me/techtouch0/4882')">
+                <span class="channel-icon">🎮</span>
+                <span class="channel-name">قناة الألعاب</span>
             </div>
-            <div class="card-content">
-                <h3>قسم التطبيقات</h3>
+            <div class="channel-item" onclick="openTelegramChannel('https://t.me/addlist/Gxcy1FFJONhkMjFi')">
+                <span class="channel-icon">📋</span>
+                <span class="channel-name">جميع قنواتي</span>
             </div>
-        </div>
-
-        <div class="card card-tutorials" onclick="window.open('https://t.me/techtouch7/671', '_blank')">
-            <div class="card-icon">
-                <img src="{{ "tutorial_icon.png" | relURL }}" alt="شروحات">
+            <div class="channel-item" onclick="openTelegramChannel('https://t.me/techtouch5')">
+                <span class="channel-icon">📸</span>
+                <span class="channel-name">قناة الصور</span>
             </div>
-            <div class="card-content">
-                <h3>شروحات توضيح</h3>
+            <div class="channel-item" onclick="openTelegramChannel('https://t.me/techtouch7/2975')">
+                <span class="channel-icon">🗑️</span>
+                <span class="channel-name">حذف حساب التلي</span>
             </div>
-        </div>
-
-        <div class="card card-ai" onclick="window.open('https://t.me/techtouch7/95', '_blank')">
-            <div class="card-icon">
-                <img src="{{ "ai_icon.png" | relURL }}" alt="ذكاء اصطناعي">
+            <div class="channel-item" onclick="openDropdownModal('sports-dropdown', 'قسم التطبيقات الرياضية')">
+                <span class="channel-icon">⚽</span>
+                <span class="channel-name">قسم التطبيقات الرياضية</span>
             </div>
-            <div class="card-content">
-                <h3>قسم الذكاء الاصطناعي</h3>
+            <div class="channel-item" onclick="openDropdownModal('movies-dropdown', 'قسم الأفلام')">
+                <span class="channel-icon">🎬</span>
+                <span class="channel-name">قسم الأفلام</span>
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- البطاقات الصغيرة -->
-<div class="sub-sections-grid">
-    <div class="dropdown-card movies-card" onclick="openDropdownModal('movies-dropdown', 'تطبيقات افلام')">
-        <div class="dropdown-header">
-            تطبيقات افلام
-        </div>
-    </div>
-
-    <div class="dropdown-card sports-card" onclick="openDropdownModal('sports-dropdown', 'تطبيقات رياضيه')">
-        <div class="dropdown-header">
-            تطبيقات رياضيه
-        </div>
-    </div>
-
-    <div class="dropdown-card video-design-card" onclick="openDropdownModal('video-dropdown', 'تصميم الفيديو')">
-        <div class="dropdown-header">
-            تصميم الفيديو
-        </div>
-    </div>
-
-    <div class="dropdown-card misc-card" onclick="openDropdownModal('misc-dropdown', 'قسم المتفرقات')">
-        <div class="dropdown-header">
-            قسم المتفرقات
+            <div class="channel-item" onclick="openTelegramChannel('https://t.me/techtouch7/1450')">
+                <span class="channel-icon">📺</span>
+                <span class="channel-name">قسم تطبيقات اليوتيوب</span>
+            </div>
+            <div class="channel-item" onclick="openTelegramChannel('https://t.me/techtouch7/204')">
+                <span class="channel-icon">📱</span>
+                <span class="channel-name">قسم التطبيقات</span>
+            </div>
+            <div class="channel-item" onclick="openTelegramChannel('https://t.me/techtouch7/211')">
+                <span class="channel-icon">📖</span>
+                <span class="channel-name">شروحات توضيح</span>
+            </div>
+            <div class="channel-item" onclick="openTelegramChannel('https://t.me/techtouch7/2367')">
+                <span class="channel-icon">🤖</span>
+                <span class="channel-name">قسم الذكاء الاصطناعي</span>
+            </div>
+            <div class="channel-item" onclick="openDropdownModal('movies-dropdown', 'تطبيقات افلام')">
+                <span class="channel-icon">🎭</span>
+                <span class="channel-name">تطبيقات افلام</span>
+            </div>
+            <div class="channel-item" onclick="openDropdownModal('sports-dropdown', 'تطبيقات رياضيه')">
+                <span class="channel-icon">🏀</span>
+                <span class="channel-name">تطبيقات رياضيه</span>
+            </div>
+            <div class="channel-item" onclick="openDropdownModal('video-dropdown', 'تصميم الفيديو')">
+                <span class="channel-icon">✂️</span>
+                <span class="channel-name">تصميم الفيديو</span>
+            </div>
+            <div class="channel-item" onclick="openDropdownModal('misc-dropdown', 'قسم المتفرقات')">
+                <span class="channel-icon">📦</span>
+                <span class="channel-name">قسم المتفرقات</span>
+            </div>
         </div>
     </div>
 </div>
 
-<!-- قسم المنشورات الحديثة -->
-{{ if .Site.RegularPages }}
-<section class="recent-posts">
-    <h2>آخر المنشورات</h2>
-    <div class="modern-posts-grid">
-        {{ range first 6 .Site.RegularPages }}
-        <div class="modern-post-card" onclick="window.location.href='{{ .Permalink }}'">
-            <div class="modern-post-content">
-                <div class="modern-post-title">{{ .Title }}</div>
-                <div class="modern-post-date">{{ .Date.Format "2006-01-02" }}</div>
-            </div>
-            <div class="modern-post-arrow">
-                <i class="fas fa-chevron-right"></i>
-            </div>
-        </div>
-        {{ end }}
+<!-- النافذة المنبثقة للقوائم الفرعية -->
+<div id="popupModal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2 id="modalTitle"></h2>
+        <div id="modalContent" class="modal-grid"></div>
     </div>
-</section>
-{{ end }}
+</div>
 
 {{ end }}
-
-
-
 

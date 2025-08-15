@@ -1,8 +1,11 @@
 {{ $advertisementsPage := .Site.GetPage "content/settings/advertisements-new.md" }}
 {{ if $advertisementsPage }}
 {{ if $advertisementsPage.Params.adEnabled }}
-<div class="advertisement-banner">
-    <p>{{ $advertisementsPage.Params.adText }} <span class="ad-pulse">إعلان</span></p>
+<div class="advertisement">
+    <div class="ad-content">
+        <span class="ad-highlight">🔥 عاجل</span>
+        {{ $advertisementsPage.Params.adText }}
+    </div>
 </div>
 {{ end }}
 {{ end }}
