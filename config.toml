@@ -21,3 +21,9 @@ defaultContentLanguage = "ar"
 
 
 
+
+
+[taxonomies]
+  category = "categories"
+
+
