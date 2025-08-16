@@ -22,16 +22,14 @@
         <div class="section-card">
             <h2 class="section-title">📝 آخر المنشورات</h2>
             <div class="latest-posts-list">
-                {{ range first 5 (where .Site.RegularPages "Type" "general-posts") }}
-                <div class="latest-post-item" onclick="goToPost('/posts/{{ .File.BaseFileName }}/')">
-                    <div class="post-date">{{ .Date.Format "2006/01/02" }}</div>
+                {{ range first 5 (where .Site.RegularPages "Type" "general-posts") }}                <div class="latest-post-item" onclick="goToPost(\"/general-posts/{{ .File.BaseFileName }}/\")">                    <div class="post-date">{{ .Date.Format "2006/01/02" }}</div>
                     <h3 class="post-title">{{ .Title }}</h3>
                     <p class="post-description">{{ .Summary | truncate 100 }}</p>
                 </div>
                 {{ end }}
             </div>
             <!-- بطاقة جميع المنشورات -->
-            <div class="section-card all-posts-card" onclick="goToSection(\"/posts/\")">
+            <div class="section-card all-posts-card" onclick="goToSection(\"/general-posts/\")">
                 <h3 class="section-title">📚 جميع المنشورات</h3>
                 <p class="section-description">عرض جميع المنشورات المنشورة</p>
             </div>
@@ -40,26 +38,19 @@
 
     <!-- بطاقة الألعاب -->
     <section class="games-section">
-        <div class="section-card" onclick="goToSection(\'/categories/games/\')">
+        <div class="section-card" onclick="goToSection(\"/categories/games/\")">
             <h2 class="section-title">🎮 الألعاب</h2>
             <p class="section-description">أحدث الألعاب والتطبيقات المتعلقة بها</p>
         </div>
     </section>
     <section class="sports-section">
-        <div class="section-card" onclick="goToSection('/categories/sports/')">
+        <div class="section-card" onclick="goToSection(\"/categories/sports/\")">
             <h2 class="section-title">⚽ أفضل التطبيقات الرياضية</h2>
             <p class="section-description">اكتشف أفضل التطبيقات الرياضية والقنوات المباشرة</p>
         </div>
     </section>
-    <!-- بطاقة الألعاب -->
-    <section class="games-section">
-        <div class="section-card" onclick="goToSection('/categories/games/')">
-            <h2 class="section-title">🎮 الألعاب</h2>
-            <p class="section-description">أحدث الألعاب والتطبيقات المتعلقة بها</p>
-        </div>
-    </section>
-    <!-- بطاقة التطبيقات الرياضية -->   <section class="movies-section">
-        <div class="section-card" onclick="goToSection('/categories/movies/')">
+    <section class="movies-section">
+        <div class="section-card" onclick="goToSection(\"/categories/movies/\")">
             <h2 class="section-title">🎬 أفضل تطبيقات الأفلام</h2>
             <p class="section-description">أحدث تطبيقات الأفلام والمسلسلات</p>
         </div>
