@@ -59,3 +59,63 @@ defaultContentLanguage = "ar"
     ]
 
 
+
+
+[[Params.collections]]
+  name = "posts"
+  label = "المنشورات"
+  folder = "content/posts"
+  create = true
+  slug = "{{slug}}"
+  fields =
+    [
+      {label = "Title", name = "title", widget = "string"},
+      {label = "Publish Date", name = "date", widget = "datetime"},
+      {label = "Body", name = "body", widget = "markdown"},
+      {label = "Category", name = "category", widget = "string"},
+      {label = "Image", name = "image", widget = "image"},
+      {label = "File", name = "file", widget = "string"},
+      {label = "Telegram Link", name = "telegramLink", widget = "string"},
+    ]
+
+
+
+
+[[Params.collections]]
+  name = "movies"
+  label = "أفضل تطبيقات الأفلام"
+  folder = "content/movies"
+  create = true
+  slug = "{{slug}}"
+  fields =
+    [
+      {label = "Title", name = "title", widget = "string"},
+      {label = "Publish Date", name = "date", widget = "datetime"},
+      {label = "Body", name = "body", widget = "markdown"},
+      {label = "Category", name = "category", widget = "string"},
+      {label = "Image", name = "image", widget = "image"},
+      {label = "File", name = "file", widget = "string"},
+      {label = "Telegram Link", name = "telegramLink", widget = "string"},
+    ]
+
+
+
+
+[[Params.collections]]
+  name = "sports"
+  label = "أفضل التطبيقات الرياضية"
+  folder = "content/sports"
+  create = true
+  slug = "{{slug}}"
+  fields =
+    [
+      {label = "Title", name = "title", widget = "string"},
+      {label = "Publish Date", name = "date", widget = "datetime"},
+      {label = "Body", name = "body", widget = "markdown"},
+      {label = "Category", name = "category", widget = "string"},
+      {label = "Image", name = "image", widget = "image"},
+      {label = "File", name = "file", widget = "string"},
+      {label = "Telegram Link", name = "telegramLink", widget = "string"},
+    ]
+
+
