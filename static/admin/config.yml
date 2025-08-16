@@ -6,7 +6,7 @@ media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
 
 collections:
-  - name: "posts"
+  - name: "general-posts"
     label: "المنشورات (عام)"
     folder: "content/general-posts"
     create: true
@@ -19,35 +19,10 @@ collections:
       - {label: "الصورة (اختيارية)", name: "image", widget: "image", required: false}
       - {label: "الملف (اختياري)", name: "file", widget: "file", required: false}
       - {label: "المحتوى", name: "body", widget: "markdown", required: false}
-  - name: "sports"
-    label: "الرياضة"
-    folder: "content/categories/sports"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "العنوان", name: "title", widget: "string", required: true}
-      - {label: "التاريخ", name: "date", widget: "datetime", required: true}
-      - {label: "المسودة", name: "draft", widget: "boolean", default: false, required: true}
-      - {label: "الوصف", name: "description", widget: "text", required: true}
-      - {label: "الصورة (اختيارية)", name: "image", widget: "image", required: false}
-      - {label: "الملف (اختياري)", name: "file", widget: "file", required: false}
-      - {label: "المحتوى", name: "body", widget: "markdown", required: false}
-  - name: "movies"
-    label: "الأفلام"
-    folder: "content/categories/movies"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "العنوان", name: "title", widget: "string", required: true}
-      - {label: "التاريخ", name: "date", widget: "datetime", required: true}
-      - {label: "المسودة", name: "draft", widget: "boolean", default: false, required: true}
-      - {label: "الوصف", name: "description", widget: "text", required: true}
-      - {label: "الصورة (اختيارية)", name: "image", widget: "image", required: false}
-      - {label: "الملف (اختياري)", name: "file", widget: "file", required: false}
-      - {label: "المحتوى", name: "body", widget: "markdown", required: false}
-  - name: "telegram"
-    label: "قنوات التليجرام"
-    folder: "content/categories/telegram"
+
+  - name: "games"
+    label: "الألعاب"
+    folder: "content/games"
     create: true
     slug: "{{slug}}"
     fields:
@@ -59,4 +34,56 @@ collections:
       - {label: "الملف (اختياري)", name: "file", widget: "file", required: false}
       - {label: "المحتوى", name: "body", widget: "markdown", required: false}
 
+  - name: "sports"
+    label: "الرياضة"
+    folder: "content/sports"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "العنوان", name: "title", widget: "string", required: true}
+      - {label: "التاريخ", name: "date", widget: "datetime", required: true}
+      - {label: "المسودة", name: "draft", widget: "boolean", default: false, required: true}
+      - {label: "الوصف", name: "description", widget: "text", required: true}
+      - {label: "الصورة (اختيارية)", name: "image", widget: "image", required: false}
+      - {label: "الملف (اختياري)", name: "file", widget: "file", required: false}
+      - {label: "المحتوى", name: "body", widget: "markdown", required: false}
+
+  - name: "movies"
+    label: "الأفلام"
+    folder: "content/movies"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "العنوان", name: "title", widget: "string", required: true}
+      - {label: "التاريخ", name: "date", widget: "datetime", required: true}
+      - {label: "المسودة", name: "draft", widget: "boolean", default: false, required: true}
+      - {label: "الوصف", name: "description", widget: "text", required: true}
+      - {label: "الصورة (اختيارية)", name: "image", widget: "image", required: false}
+      - {label: "الملف (اختياري)", name: "file", widget: "file", required: false}
+      - {label: "المحتوى", name: "body", widget: "markdown", required: false}
+
+  - name: "settings"
+    label: "إعدادات الموقع"
+    files:
+      - name: "profile"
+        label: "إعدادات الصفحة"
+        file: "content/settings/profile.md"
+        fields:
+          - {label: "اسم الموقع", name: "channelName", widget: "string", default: "TechTouch"}
+          - {label: "صورة الموقع", name: "profileImage", widget: "image", required: false}
+          - {label: "وصف الموقع", name: "description", widget: "text", default: "اضغط على أي قسم للانتقال إليه مباشرة"}
+
+  - name: "telegram"
+    label: "قنوات التليجرام"
+    folder: "content/telegram"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "العنوان", name: "title", widget: "string", required: true}
+      - {label: "التاريخ", name: "date", widget: "datetime", required: true}
+      - {label: "المسودة", name: "draft", widget: "boolean", default: false, required: true}
+      - {label: "الوصف", name: "description", widget: "text", required: true}
+      - {label: "الصورة (اختيارية)", name: "image", widget: "image", required: false}
+      - {label: "الملف (اختياري)", name: "file", widget: "file", required: false}
+      - {label: "المحتوى", name: "body", widget: "markdown", required: false}
 

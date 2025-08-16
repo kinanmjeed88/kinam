@@ -1,0 +1,26 @@
+{{ define "main" }}
+<div class="posts-list-container">
+    <header class="posts-list-header">
+        <h1 class="posts-list-title">🎬 أفضل تطبيقات الأفلام</h1>
+        <p class="posts-list-description">أحدث تطبيقات الأفلام والمسلسلات</p>
+    </header>
+    
+    <div class="posts-grid">
+        {{ range .Pages }}
+        <article class="post-card" onclick="goToPost('{{ .Permalink }}')">
+            {{ if .Params.image }}
+            <div class="post-card-image">
+                <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" loading="lazy">
+            </div>
+            {{ end }}
+            <div class="post-card-content">
+                <h2 class="post-card-title">{{ .Title }}</h2>
+                <div class="post-card-date">{{ .Date.Format "2006/01/02" }}</div>
+                <p class="post-card-summary">{{ .Summary | truncate 150 }}</p>
+            </div>
+        </article>
+        {{ end }}
+    </div>
+</div>
+{{ end }}
+
