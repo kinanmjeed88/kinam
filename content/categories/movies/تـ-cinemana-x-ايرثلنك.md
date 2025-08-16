@@ -1,5 +1,5 @@
 ---
-title: " Cinemana X ايرثلنك"
+title: "Cinemana X ايرثلنك 111"
 date: 2025-07-29T17:51:36.597Z
 draft: false
 download_file: /images/uploads/cinemana-x-v2-.apk
