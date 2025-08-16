@@ -1,5 +1,5 @@
 ---
-title: تـ Cinemana X ايرثلنك
+title: " Cinemana X ايرثلنك 111"
 date: 2025-08-16T12:23:46.184Z
 category: movies
 ---
