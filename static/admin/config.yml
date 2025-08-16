@@ -8,7 +8,7 @@ public_folder: "/images/uploads"
 collections:
   - name: "posts"
     label: "المنشورات (عام)"
-    folder: "content/posts"
+    folder: "content/general-posts"
     create: true
     slug: "{{slug}}"
     fields:
@@ -21,7 +21,7 @@ collections:
       - {label: "المحتوى", name: "body", widget: "markdown", required: false}
   - name: "sports"
     label: "الرياضة"
-    folder: "content/category/sports"
+    folder: "content/categories/sports"
     create: true
     slug: "{{slug}}"
     fields:
@@ -34,7 +34,7 @@ collections:
       - {label: "المحتوى", name: "body", widget: "markdown", required: false}
   - name: "movies"
     label: "الأفلام"
-    folder: "content/category/movies"
+    folder: "content/categories/movies"
     create: true
     slug: "{{slug}}"
     fields:
@@ -47,7 +47,7 @@ collections:
       - {label: "المحتوى", name: "body", widget: "markdown", required: false}
   - name: "telegram"
     label: "قنوات التليجرام"
-    folder: "content/category/telegram"
+    folder: "content/categories/telegram"
     create: true
     slug: "{{slug}}"
     fields:
