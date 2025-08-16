@@ -35,11 +35,10 @@ defaultContentLanguage = "ar"
   folder = "content/general-posts"
   create = true
   slug = "{{slug}}"
-  fields =
-    [
+  fields = [
       {label = "Title", name = "title", widget = "string"},
       {label = "Publish Date", name = "date", widget = "datetime"},
-      {label = "Body", name = "body", widget = "markdown"},
+      {label = "Body", name = "body", widget = "markdown"}
     ]
 
 
@@ -51,11 +50,10 @@ defaultContentLanguage = "ar"
   folder = "content/games"
   create = true
   slug = "{{slug}}"
-  fields =
-    [
+  fields = [
       {label = "Title", name = "title", widget = "string"},
       {label = "Publish Date", name = "date", widget = "datetime"},
-      {label = "Body", name = "body", widget = "markdown"},
+      {label = "Body", name = "body", widget = "markdown"}
     ]
 
 
