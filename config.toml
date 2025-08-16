@@ -65,15 +65,14 @@ defaultContentLanguage = "ar"
   folder = "content/posts"
   create = true
   slug = "{{slug}}"
-  fields =
-    [
+  fields = [
       {label = "Title", name = "title", widget = "string"},
       {label = "Publish Date", name = "date", widget = "datetime"},
       {label = "Body", name = "body", widget = "markdown"},
       {label = "Category", name = "category", widget = "string"},
       {label = "Image", name = "image", widget = "image"},
       {label = "File", name = "file", widget = "string"},
-      {label = "Telegram Link", name = "telegramLink", widget = "string"},
+      {label = "Telegram Link", name = "telegramLink", widget = "string"}
     ]
 
 
@@ -85,15 +84,14 @@ defaultContentLanguage = "ar"
   folder = "content/movies"
   create = true
   slug = "{{slug}}"
-  fields =
-    [
+  fields = [
       {label = "Title", name = "title", widget = "string"},
       {label = "Publish Date", name = "date", widget = "datetime"},
       {label = "Body", name = "body", widget = "markdown"},
       {label = "Category", name = "category", widget = "string"},
       {label = "Image", name = "image", widget = "image"},
       {label = "File", name = "file", widget = "string"},
-      {label = "Telegram Link", name = "telegramLink", widget = "string"},
+      {label = "Telegram Link", name = "telegramLink", widget = "string"}
     ]
 
 
@@ -105,15 +103,14 @@ defaultContentLanguage = "ar"
   folder = "content/sports"
   create = true
   slug = "{{slug}}"
-  fields =
-    [
+  fields = [
       {label = "Title", name = "title", widget = "string"},
       {label = "Publish Date", name = "date", widget = "datetime"},
       {label = "Body", name = "body", widget = "markdown"},
       {label = "Category", name = "category", widget = "string"},
       {label = "Image", name = "image", widget = "image"},
       {label = "File", name = "file", widget = "string"},
-      {label = "Telegram Link", name = "telegramLink", widget = "string"},
+      {label = "Telegram Link", name = "telegramLink", widget = "string"}
     ]
 
 
