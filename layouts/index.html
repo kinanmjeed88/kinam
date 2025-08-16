@@ -22,8 +22,7 @@
         <div class="section-card">
             <h2 class="section-title">📝 آخر المنشورات</h2>
             <div class="latest-posts-list">
-                {{ range first 5 (where .Site.RegularPages "Type" "general-posts") }}
-                <div class="latest-post-item" onclick="goToPost('/posts/{{ .File.BaseFileName }}/')">
+                {{ range first 5 (where .Site.RegularPages "Type" "general-posts") }}                <div class="latest-post-item" onclick="goToPost('{{ .Permalink }}')">
                     <div class="post-date">{{ .Date.Format "2006/01/02" }}</div>
                     <h3 class="post-title">{{ .Title }}</h3>
                     <p class="post-description">{{ .Summary | truncate 100 }}</p>
